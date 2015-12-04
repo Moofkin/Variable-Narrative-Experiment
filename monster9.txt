@@ -1,0 +1,930 @@
+﻿Idunn&Idunna, the Twin Archers stats, skills, evolution, location | Puzzle & Dragons Database      var monsterData, pageData, collection, selectedMonster=null; $.getJSON("script/autocomplete/dictionary.txt", function (json){ monsterData = json.monsters; pageData = json.pages; $(function(){ initAutoComplete(); if (typeof getCollection == "function"){ getCollection(); } }); });            .fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none} .fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(http://static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}} .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}  
+
+
+
+
+
+
+
+
+Idunn&Idunna, the Twin Archers
+
+ 
+
+
+   
+
+
+
+
+
+
+Profile No.653
+
+
+
+
+
+
+Name:Idunn&Idunna, the Twin Archers
+JP Name:蒼穹の双星神・イズン＆イズーナ
+
+Type:God / Balanced
+Element:Water / Water
+
+Relative to other 7 & 8 ★
+
+HP
+ATK
+RCV
+
+Rarity:7 Stars
+Cost:35
+M Point:5000
+Illust:Shinnosuke Hino
+Nick:I&I
+
+
+
+Experience
+
+
+
+
+
+Power-up: 4,000,000 Growth Curve
+4,000,000 Exp to max this monster 
+
+Now Lv9897969594939291908988878685848382818079787776757473727170696867666564636261605958575655545352515049484746454443424140393837363534333231302928272625242322212019181716151413121110987654321Tar Lv99989796959493929190898887868584838281807978777675747372717069686766656463626160595857565554535251504948474645444342414039383736353433323130292827262524232221201918171615141312111098765432
+
+
+
+
+
+ 
+
+MinMaxCus
+Level199--999999
+HP9663055---440-250+860
+ATK8211352---120-20+380
+RCV346529---10+120-310
+Weighted ?376.13752.23---71+11+58
+
+Sell Price66065340--570066007350
+Feed Exp1575
+(2363)155925
+(233888)--540063007050
+ ( Experience gain bonus from same element ) 
+
+Level999897969594939291908988878685848382818079787776757473727170696867666564636261605958575655545352515049484746454443424140393837363534333231302928272625242322212019181716151413121110987654321+HP9998979695949392919089888786858483828180797877767574737271706968676665646362616059585756555453525150494847464544434241403938373635343332313029282726252423222120191817161514131211109876543210+ATK9998979695949392919089888786858483828180797877767574737271706968676665646362616059585756555453525150494847464544434241403938373635343332313029282726252423222120191817161514131211109876543210+RCV9998979695949392919089888786858483828180797877767574737271706968676665646362616059585756555453525150494847464544434241403938373635343332313029282726252423222120191817161514131211109876543210
+ 
+ 
+
+
+
+Stats Growth Chart
+
+
+
+
+
+
+HP: Late Bloomer ATK: Late Bloomer RCV: Late Bloomer 
+
+HP|  Attack|  Recovervs Level
+HP|  Attack|  Recovervs Experience
+
+
+
+
+
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+
+-1000
+1000
+3000
+5000
+7000
+
+
+
+
+
+
+
+Idunn&Idunna, the Twin Archers
+
+
+
+
+
+
+
+
+
+
+
+
+
+Compare Idunn&Idunna, the Twin Archers with ..
+
+
+Please Select5 Mechdragon Combo, Demon Hadar5 Mechdragon Fusion, God Canopus5-Ore Magic Stone Dragon, Mithril Edge6聖球・サタンマリア堕転したマギ, Judar審美的転生注射, Zazan師団長, Colt帰ってきたサイヤ人, Vegeta忍ギガ満呪紋の化身エスパー・41号エキドナロココクリスタル・パラディンジャギィネコジャッジゴーレムジン＝フリークスカクセイドラゴンカイトセルレギオス＆レギオスネコアクア・サーファーアテナの使命・沙織アーサーアンリ・ボーラムアンリ＆カオスデビルドラゴンガーグァネコガーグァ＆ガーグァネコギガ満助サーティワン・エメリットサーティワン・アメリットサーティワン・サファリットサーティワン・愛猫神・バステトサーティワン・トパリットサーティワン・ルビリットサーティワン・ダブエメリットサーティワン・ダブアメリットサーティワン・ダブサファリットサーティワン・ダブトパリットサーティワン・ダブルビリットサーティワン・バステトシェル・ファクトリーγシェル・フォートレスシャーマンカーンシャーマンラーンスサノオ王子スーパー超覚醒ゼウスコルト隊兵隊長, Rammotコッコ・ルピアキュウビキンゴルネコキングゴルドラ＆キンゴルネコキングメタドラ＆キンメタネコキンメタネコ大邪眼Ｂ・ロマノフ大花龍ブラキオス＆アイルー天獄召喚・バハムートヘルヘブン古の木獣宿世の翠龍喚士, Sonia宇宙の魔獣・ヤコン巡警の星天使, Famiel巫女の力, Kagome Higurashi冥鈴の星天使, Lumiel光槍の聖ボット・ヘラクオーディン光翼の絆・ソルジャーズ創世の魔法使い, Aladdin創智の大天使, Raphael弓使い・ゼル伐爪の緑龍契士, Sylvie形態変化, Youpi偽りの冥闘士・牡羊座のシオン幸七羽毛・ヘッドロココ幻想妖精カチュア南の島の少年, Uubなんなすみません！ヤ魔モトＰ十字架サクヤAamirAB Black Bird BombAB Bluebird BluesAB BombAB ChuckAB Dashing WingmanAB Green Bird HalAB HalAB MatildaAB RedAB Red Bird RedAB The BluesAB White Bird MatildaAB WingmanAB Yellow Bird ChuckABE Archer BluesABE Capt'n BombABE Cleric MatildaABE Fencer RedABE Guard Captain PigABE Knight RedABE Mage ChuckABE Pirate BombABE Priest MatildaABE Royal Guard PigABE Trickster BluesABE Wizard ChuckAbsolute Zero HrungnirAbyssal CyberDragon, SadalmelikAbyssal Darkdragon, VritraAbyssal Hell Deity Jackal, Anubis受継ぎし拳・水瓶座の氷河AceAce Archer, Green Arrow武田ムラクモ受験生, Leorio悪魔龍ダークマスターズ・滅角愛の放射線, Pike愛護の星天使, Rozuel滅尽の大天使, Michael死鬼者デスワルツ極光太陽神・シャーマンラーン極滅召喚・ダークフレアバハムート歩兵兵站用輸送支援車両・ロジコマ水無月ヨウ氷塊龍プレシオス＆アイルー新形態, Naraku気狂いピエロ・カイト浄化の精霊ウルス慟哭の冥闘士・双子座のサガ怪盗キッド沖田リオナAegirAemo木牛ガヴナン最強戦士・超ベジット最強装備, Juggler最終形態, Tendo Jigoku暗黒覚醒ブラック・ディオス暗黒魔界の王・ダーブラムラクモ＆剛腕の巨人・ギガンテスヨウ＆カイゼルジークフリートヴァンＰ魔ヘラクライストヘッドロココパトリシア・エゼルパトリシア＆ヴァルキリーピアニースモルボルワーストヤ魔モトＰレウスネコレイアネコレギオスネコティラアイルーティンニンティンニン＆エンジェルファンゴネコフィレムフォーレン・ラズールフォーレン＆狩猟神・アルテミスフロギィネコドスジャギィ＆ジャギィネコドスファンゴ＆ファンゴネコドスフロギィ＆フロギィネコドスバギィ＆バギィネコドラキュラ・イベリ公ロジコマチカ＆戦女神・ミネルヴァバギィネコリオレウス＆レウスネコリオレイア＆レイアネコリオナ＆大海の歌姫・セイレーンリノプロス＆リノプロスネコリノプロネコブラッキィアイループレシィアイルーハンター・ゼルボルシャック・大和・ドラゴンボルシャック・ドラゴンボルメテウス・サファイア・ドラゴンボルメテウス・ホワイト・ドラゴンボルメテウス・ブラック・ドラゴンナイトスター・イベリ公ミコト爆神マドロミドラゴンマッド・ギターマッハ・ルピアAgdrallAgito Cadet, AceAkechi MitsuhideAladdinAlex SantaAlibabaAlma & Kapibara-sanAlreschaAmaterasuAmaterasu Ohkamiamaterasu ohkamiAmberjackAme no UzumeAmethyst CarbuncleAmibaAmitaka & Kanon & CecilAmitanAmonAncestor of the Gods, IzanagiAncient Dark Dragon, Caol-ilaAncient Draggie KnightAncient Draggie Knight, ZealAncient Dragon KnightAncient Dragon Knight, ZealAncient Fire Dragon, ArdbegAncient Light Dragon, LaphroaigAncient Water Dragon, BowmoreAncient Wood Dragon, LagavulinAndroid 16Android 17Android 18andromedaAndromedaAngelAngel CinnamonAngel of Secret Destiny, EliaAngelionAngeliousAngry Tigrex & Rex CatAnimaAnne Punt QuettebussAnne Punt Quettebuss in LoveAnnihilate Mechdragon, HadarAntaresAnubis医大生・レオリオ人造人間16号・戦闘態勢人造人間17号・戦闘態勢人造人間18号・戦闘態勢二ツ星ハンター・ジン＝フリークスApex Blue Flower Dragon, StarlingApocalypseApolloApple DrawnApple Springs Kittyn & MimmynaAqua BaronAqua ChaserAqua FighterAqua GearAqua KnightAqua Shield KnightAquamanArbiter of Judgement, Metatronarbiter of judgement, metatronArcane Monarch, Vampire DukeArchangel GabrielArchangel LuciferArchangel MetatronArchangel MichaelArchangel RaphaelArchangel UrielArchdemon BeelzebubArcherAresArkham KnightArmin ArlertArmor OgreArmored Blade Dragon, DiagoldosArmored Blue Blade Knight, ArclineArmored Blue Flame Knight, NimArmored Dual Blade Knight, CreuseArmored Green Ice Knight, MuseArmored Red Storm Knight, DelgadoArmored TitanArt Goddess of Entertainment, Ame no UzumeArtemis半妖の少年, InuyashaAstarothAsuka&Eva Unit-02Asuka&Upgraded Eva Unit-02Asuka&Upgraded Eva Unit-02, Code 777AthenaAtsui-sanAttack on Titan, Eren YeagerAurora DragonAvalon DrakeAvenging War Deity, AresAvowed Thief, Ishikawa GoemonAwoken AegirAwoken Amaterasu OhkamiAwoken AnubisAwoken AstarothAwoken AthenaAwoken BastetAwoken Black DiosAwoken CeresAwoken Dancing Queen Hera-Urawoken dancing queen hera-urAwoken Deity OdinAwoken Deus ex MachinaAwoken FreyjaAwoken FreyrAwoken GaiaAwoken HadesAwoken HakuAwoken HeimdallrAwoken Helawoken heraAwoken HeraAwoken Hera-BeorcAwoken Hera-IsAwoken Hera-SowiloAwoken Hera-UrAwoken HinokagutsuchiAwoken HorusAwoken Idunn&IdunnaAwoken IsisAwoken JordAwoken KarinAwoken LakshmiAwoken LeilanAwoken Light Dragon King SaigaAwoken Lightweight Armor Queen, PolarisAwoken LokiAwoken MeimeiAwoken MephistophelesAwoken MinervaAwoken NeptuneAwoken NoahAwoken OdinAwoken Odin & Odin Cat, the War DeitiesAwoken Odin Cat, the War DeityAwoken Odin TAMADRAAwoken Odin TAMADRA, the War DeityAwoken ParvatiAwoken Phantom God, OdinAwoken Phantom God, Odin TAMADRAAwoken Planawoken planAwoken RaAwoken SakuyaAwoken SandalphonAwoken Shinji&Eva Unit-01Awoken Shinji&Kaworu&Unit-13Awoken ShivaAwoken SopdetAwoken SphinxAwoken SurtrAwoken Susano no MikotoAwoken ThorAwoken ThothAwoken TsukuyomiAwoken VenusAwoken Viper OrochiAwoken WadatsumiAwoken YamatsumiAwoken ZeusAwoken Zeus MercuryAwoken Zeus OlympiosAwoken Zeus StratiosAwoken Zeus VulcanAwoken Zeus-DiosAzure Goddess, Valkyrie ReineAzure Maiden, Graceful ValkyrieBaalBabidiBaby MatchBaby Match PlusBaby SealBad Badtz-MaruBaddieBahamutBalloon PenguinBamboo Cutter's Blossom, Kaguya-HimeBanchackBaneBanishing Claw Byakko, HakuBaphometBarbed Frost Dragon Emperor, IlsixBasiliskBastetBatgirl & BatwomanBatman+BatarangBatman+BatmobileBatman+BatwingBatman+BW AttackBatman+BW StealthBatman+DisruptorBatman+Remote ClawBatman+S. GlovesBatman+S. Gloves ActBatman+S. Gloves Act FBBattle Flower Spirit, MandrakeBeach Café Waitress, High Water Ninjabearded deity, guan yuBearded Deity, Guan YuBeast of the Labyrinth, MinotaurBeast RiderBeast Rider MerlinBeast Rider, Wiz MerlinBeelzebubBehemothBelialBem GistBerry DragonBerserkBerserkerBerserker ZBewitching Demon Bird, CockatriceBig BaddieBig BubblieBig FlamieBig ShyneeBig WoodsieBiskyBlack BaronBlack Beast Demon, ZuohBlack Beast Demon's Servant, AamirBlack Blaze, Graceful ValkyrieBlack DeviNyanBlack DragonBlack Dragonbound, TyphonBlack FairyBlack FighterBlack Flying Sorceress, GoetiaBlack KnightBlack MageBlack MoltdraBlack PirateBlack Pirate Dragon, BlackbeardBlack ZeusBlack-Winged Goddess, Valkyrie ClaireBlast Aurora DragonBlazing ApolloBlazing CyberDragon, ThubanBlazing Dark TiamatBlazing Deity Falcon, HorusBlazing Dragonfire Angel, UrielBlazing Goddess of Power, KaliBlazing Hammer Brute, PrometheusBlazing Ice OgreBlazing King ApolloBlazing Maiden, Princess ValkyrieBlazing Shrine Maiden, Chiyomeblazing shrine maiden, chiyomeBlazing Sun God ApolloBleak Night Daughter, PandoraBlessed River Goddess, SarasvatiBlizzard Archdemon AmonBlood DemonBlood DevilBlooming Flower Princess KaguyaBlue Angel, FamielBlue CarbuncleBlue Chain Starsea Goddess, AndromedaBlue ChaserBlue Chocobo&Chocobo KnightBlue DeviNyanBlue DragonBlue Dragon Caller, SoniaBlue Dragonbound, RyuneBlue FairyBlue Flame IfritBlue Flamedragon MuspelheimBlue Flower Dragon, StarlingBlue GoblinBlue Grimoire, Ars PaulinaBlue Knight, MuseBlue Mech General, Mar MidgardBlue MoltdraBlue Moon Sea Deity, IsisBlue Ninja, Ukai MagorokuBlue OgreBlue PirateBlue Pirate Dragon, AwildaBlue Puppet Master of Rebirth, Charité MachinaBlue Puppeteer, CharitéBlue ShieldraBlue Shining DivinegonBlue Sky Fruit, Berry DragonBlue Skydragon, Nirai KanaiBlue Stone Dragon, MythrilBlue Time Sorceress, Ars PaulinaBlue Wind Ninja Princess, HatsumeBlue Wind Ninja, HatsumeBlue Wood FafnirBlue-Winged Star Angel, FamielBokkleBold Divine General, Sun QuanBold Pirate Dragon King, ZaerogBomber, GenthruBone FishBonfire Fox, MitsukiBoulder Dragon, GarmutBountiful Arbor Goddess, FreyjaBrachioBrachyBrachy-beanBrachysBrave Don-chanBrave Don-chan PlusBrilliant Sun Deity, ApolloBroad-Minded Hell Demon, ScarletBronze Saint, Andromeda ShunBronze Saint, Cygnus HyogaBronze Saint, Dragon ShiryuBronze Saint, HyogaBronze Saint, IkkiBronze Saint, Pegasus SeiyaBronze Saint, Phoenix IkkiBronze Saint, SeiyaBronze Saint, ShiryuBronze Saint, ShunBronzed Beauty, Valkyrie ClaireBronzed GrendelBroodBubble ChimeraBubblieBulmaBun Bun Regent-kunBurning Bowl Dragon, GyundoBurning God, SetBurning Maiden, Princess ValkyrieBurning Phoenix Knight, HomuraBurterBuzz Cut GoblinBuzz Cut Goblin Plus爆炎龍ティラノス＆アイルー爆轟の魔神卿, Belial紅蓮華飛速・エキドナロココ炎術士, Recca Hanabishi盗賊の極意, Chrollo Lucilfer神成の大天使, Gabriel神王妃・ヘラマリア神速・キルア＝ゾルディック究極装備 Fencer究極装備 Puppetmaster究極装備 Ranger究極装備 Thief究極装備, Time Mage空の王・リオレウス＆レウスネコ緑龍契士, Sylvie煌斧の星天使, Ariel牧村チカ灼龍の熾天使, Uriel精霊龍ライトデュエル・煌牙Calm Beast, Mikasa Ackermancao caoCao CaoCapricious Summon, Fat ChocoboCastorCath PalugCathy CrazyCatwomanCatwoman+C. ClawCauchemarcelestial life dragon, zhuge liangCelestial Life Dragon, Zhuge LiangCell - Final FormCell - First FormCell - Perfect FormCell - Second FormCentaurCerberusCerberus RiderCerberus Rider, JizeCerberus, the Guardian of HellCeresChampion Mr. SatanChampion of Olympus, HeraclesChaosChaos Blizzard DragonChaos Devil DragonChaos Dragon KnightChaos Dragon Knight, VoiceChaotic Flying General, Lu BuChaotic Gore Magala & Gore CatCharming Temptress, Wicked LadyChiaotzuChickenbowlChivalric Demon Prince, CauchemarChivalrous Demon Lord, AmonChocoboChrollo LucilferChrono TurtleCinderellaCinnamorollClass Monitor, AthenaCloudCloud & Hardy-DaytonaCloud of DarknessCoC ArcherCoC BarbarianCoC Crimson DragonCoC DragonCoC Flame ArcherCoC Forest GoblinCoC Glorious HealerCoC GoblinCoC HealerCoC Nightmare P.E.K.K.ACoC P.E.K.K.ACoC Rage BarbarianCockatrice眷属器使い, MorgianaColossus TitanColtCombat State, Armored TitanCombat State, Colossus TitanCombat State, Female TitanCommerce Deity HermesCommerce Deity of Dreams, HermesConquering Martial Deity, Cao Caoconquering martial deity, cao caoConqueror of the Heavens, RaohCopperheadCorps' Goddess, Krista LenzCorpse Armor Dark Knight, GravisCorpse Wyrm, Dragon ZombieCourageous Divine General, Sun Quancourageous divine general, sun quanCRABCRAB Ver.2Cradle of Hell Goddess, PersephoneCrazed King of Purgatory, BeelzebubCreation Tree Spirit, AlrauneCreator God of Twin Skies, IzanagiCreator God, VishnuCrimson Lotus Mistress, EchidnaCrimson Speedster, The FlashCross SakuyaCruel Frozen Hell Demon, IndigoCryptic Feline, KuroneCrystal Aurora DragonCrystal Ruler Hikari - ItsukiCrystal Ruler Hikari - Tenchi白炎狐・キュウビ百式観音, Netero百鬼呪怨, JedCu Chulainn, the Green LancerCuatonCunning Trickster God, LokiCupidCursed DragonCurved Blade Brave, KopisCyberdragon ValhallaCyclone Devil DragonCyclops王の器, Alibaba玩具修理者, PitouDa Qiao & Xiao Qiaoda qiao & xiao qiaoDaburaDancing Flame, Amaterasu OhkamiDancing Light, Amaterasu OhkamiDancing Mad, KefkaDaredevil of Dark, Gamble MageDark Angel MetatronDark Angel, LumielDark Archdemon LuciferDark Armor Dragon, GacruxDark Blue Skydragon, Nirai KanaiDark Cat Dragon, Black NyadraDark Courier KuroneDark Dog Dragon, ChinwandraDark Dragon KnightDark Dragon SwordsmanDark Flame IfritDark GearDark GolemDark Golem Mk.IIDark Golem Mk.IIIDark Holy Skydragon, Shangri-LaDark Ice LeviathanDark Insect Dragon, MutecocoonDark Knight, GravisDark Kouryu Emperor, FaganDark Liege, Vampire DukeDark Mech General, HysferzenDark Night Skydragon, ElysiumDark PengdraDark Plant Mechanical Star God, SpicaDark Red Skydragon, El DoradoDark Samurai Dragon, NobunagaDark ShibamaruDark Shining DivinegonDark Sky Star Dragon Emperor, DefoudDark Sprite, CattleyaDark Sun Deity, RaDark Twin Star TiamatDark Wizard, Dill SiriusDark Wood FafnirDark Wood Skydragon, HoraiDarkdragon VritraDark-Eyed Dragon Monk, XuanzangDarkseidDark-Winged Star Angel, LumielDarumaDashing Dandy, Maeda KeijiDawn Calm Indigo Dragon Caller, SumireDawn Sky Sun Dragon Caller, KannaDawning Dragon Caller, Sonia GranDDQ・アークガーディアンDDQ・スケルトンDDQ・スケルトンロードDDQ・キングベヘモットDDQ・ディフェンダーDDQ・ドラゴニュートDDQ・ドラゴンDDQ・ドレイクDDQ・ポイズンエンチャンターDDQ・リザードマンDDQ・ベヘモットDDQ・マジックアーチャーDeathly Hell Deity Jackal, AnubisDeathstrokeDeathstroke + B. StaffDecisive General, Zhang FeiDeep ChimeraDeliberate Rebel, Akechi MitsuhideDemolishing Creator, ShivaDemon Flamedragon KagatoDemon God MasterionDemon King MasterionDemon Slayer, Susano no MikotoDemon Slaying Goddess, DurgaDemon Viper OrochiDemon-Clawed Monster Cat, Cath PalugDende & PorungaDesperate Courage, Jean KirsteinDestroyer Dragon, ApocalypseDestroyer God, Shiva DragonDestroying CyberDragon, DiademDestroying Goddess of Power, KaliDestruction Palm Mechanical Star God, CastorDetermined Summoner, YunaDeus ex MachinaDevil DragonDevil EyeDevil FishDevil MermaidDevil Mermaid PlusDevil of the Depths, KrakenDevoted Miko Goddess, KushinadahimeDiagoldosDiligent Spy, Ishida MitsunariDimensional Sorcerer, ChesterDimensional Travelers, Aemo & MootieDino RiderDino Rider DrakeDino Rider, Wild DrakeDinocornDinocorn KingDiscipline Committee Chair, AthenaDistant Sea Talent, RukaDivine Brave General, KrishnaDivine Creator of Order, VishnuDivine Flower Suzaku, LeilanDivine Flowers, Da Qiao & Xiao Qiaodivine flowers, da qiao & xiao qiaodivine flying general, lu buDivine Flying General, Lu BuDivine Galaxy Goddess, NutDivine General of the Sun, KrishnaDivine Harbinger Suzaku, Leilandivine law goddess, valkyrie roseDivine Law Goddess, Valkyrie Rosedivine queen heraDivine Queen HeraDivine Wardens, Umisachi&YamasachiDivine Water Messenger, KappaDivinegonDominating Warrior King, Cao CaoDomovoiDon DomovoiDon-chanDoomsdayDouble-Edged Blade Brave, ClaymoreDoumyou Guardian Genbu, MeimeiDraggieDraggie KnightDragon Caller, Sonia GranDragon Emperor, Buster SiegfriedDragon KnightDragon Lord ZaerogDragon RiderDragon Rider ArthurDragon Rider, King ArthurDragon SamuraiDragon ShogunDragon ZombieDragonetteDragoonDrallDrawn JokerDread Lord, DarkseidDreaming Archdemon, AstarothDrifting Wizard, Wee JasDrilling Shark Dragon, MegalodranDroidragonDryadD'spinasDuke Vampire LordDurgaDusk Scarlet Dragon Caller, Tsubaki鏡界の守護者・フィレム覚醒オーディンネコ覚醒オーディン＆オーディンネコ覚醒ヘラクオーディン託されし魂・龍星座の紫龍闘匠メサイヤ蒼神龍スペル・グレートブルー邪悪の化身, Hakumen no Mono邪眼皇ロマノフI世魔壊の星天使, Ruel魔導師バビディ魔導具の天才, Fuko Kirisawa魔法美容師, Bisky魔人ヴァンパイア魔肖ピエドラ魔肖ネロ雷光の使徒ミール黄金の一矢, Sagittarius Seiya黄金聖闘士・シオン鬼族の宇宙人, Lum謝債発行機, Leol超サイヤ人・破壊王子ベジータ超サイヤ人第三段階・トランクス超人・41号超神星ネプチューン・シュトローム闇鎌士ユカリ鉄砕牙の奥義, Inuyasha誘水姫・ピアニース聖天使クラウゼ・バルキューラEarth BaronEarth Defender - ChiaotzuEarth Defender - KrillinEarth Defender - TenshinhanEarth Defender - YamchaEarth DragonEarth Dragon KnightEarth Dragon SwordsmanEarth FighterEarth GolemEarth GuardianEarth Insect Dragon, GigarockEarth KnightEarth Light CarbuncleEarth-Rending Emperor, SiegfriedEbon Sorcerer, Dill SiriusEchidnaECO Baby TinyECO DumptyECO Dumpty AlmaECO PepenECO Pepen AlmaECO SalamanderECO Salamander AlmaECO ShaboECO Shabo AlmaECO Super Tiny AlmaECO TinyECO Tiny Alma聖王アーサー聖霊王アルカディアスEight-Headed Dragon God, Viper OrochiElastic Love, HisokaElemental of Gold Glimmer, GenieElemental of Harsh Flame, ShaitanElemental of Kind Waters, UndineElemental of Levity, SylphElemental of True Death, ThanatosEmerald CarbuncleEmperor MasterionEmperor of PalameciaEmpress God, IzanamiEmpress of Creation, IzanamiEmpress of Serpents, EchidnaEnchantress of the Sea, SirenEndless Blue Dragon Caller, SoniaEndless Era Sorcerer, Wee JasEnraged Black Phantom Demon, ZuohEren YeagerErwin Smith隔世の蒼龍喚士, SoniaEternal Jade Dragon Caller, SoniaEternal Twin Stars, Idunn&IdunnaEthereal Guardian Seiryuu, Karin陸の女王・リオレイア＆レイアネコ除念能力, Hina陶酔の蝶, PoufEvil Darkdragon VritraEvil Dragon HelheimEvil Eye CyberBeast, KakkabEvil Genius, Lex LuthorEvil Knight, CreuseExa-HydraExiled ApolloExtant Red Dragon Caller, Soniaextant red dragon caller, sonia鎌士ユカリFafnirFairlioFairlionFall Wind Jasper Dragon Caller, KaedeFallen Angel LuciferFat ChocoboFayth's Dream, TidusFeline Deity of Harmony, BastetFemale TitanFencerFencer SantaFenrir KnightFenrir Knight KamuiFertility Deity CeresFertility Deity, Evil CeresFertility Deity, Holy CeresFierce Warrior, Sanada YukimuraFinal Nightmare Harley QuinnFire Armor Dragon, SadorFire Cat Dragon, Tabby NyadraFire Courier MitsukiFire Dog Dragon, TosawandraFire Dominion UrielFire Dragon KnightFire Dragon SwordsmanFire Hammer Kiriko AnotherFire Mechdragon, BetelgeuseFire PengdraFire Samurai Dragon, ShingenFire Serpent God, Hino KagutsuchiFire ShibamaruFire Sprite, ParrotFire Wizard, LailaFiredragon Grand TyrannosFiredragon TyrannosFireflyFirefly + FlamethrowerFirefly SquidFironFive Stars of Nanto, Fudo of the MountainsFive Stars of Nanto, Juza of the CloudsFive Stars of Nanto, Rihaku of the OceanFlame Archdemon BelialFlame Armor OgreFlame BaronFlame Bowl Demon, GalbowlFlame ChaserFlame ChimeraFlame Deity, Falcon HorusFlame FighterFlame GearFlame GolemFlame GuardianFlame Insect Dragon, FlammesickleFlame KnightFlame Knight AreonFlame Mech Warrior, JotunnFlame Shield KnightFlame Shrine Maiden, ChiyomeFlame Spirit Will-O'-WispFlame Twin Star IfritFlamedragon MuspelheimFlamewing Twin Dragon King, WangrenFlame-Winged CyberBeast, MarkabFlamieFlare DrallFlash Sorcerer, Rei SiriusFlashing-Clawed CyberBeast, LeonisFlo GistFlower ChimeraFlowerdragon BrachysFlowerdragon Gaia BrachysFlowing Dark TiamatFog ChimeraForestBahnFormulaFortoytopsFortune Deity LakshmiFounder of Nations, OkuninushiFour Leaf Clover Princess, ThumbelinaFragrant Bowl Dragon, HappoFreyjaFreyja, the Fertility GoddessFreyja, the Goddess of GaiaFreyrFreyr, the Blazing SwordsmanFreyr, the God of VictoryFrieza - Final FormFrieza - First FormFrieza - Second FormFrieza - Third FormFrieza's henchmen - ZarbonFrost DemonFrost DevilFrost Dragon Emperor, IlsixFrost-Fanged CyberBeast, AlfeccaFrozen Hell Demon, IndigoFudoFuko KirisawaFukuragiFuma KotaroFurawan Hidamari-sanFuriFuuFuu, the Dancer in the GrassesGaiaGaia Shield KnightGaiadragon YggdrasilGalbowlGale CyberDragon, AlnairGale Wolf, HatiGamble MageGaneshaGardener PochikaGC CRABGC CRAB Ver.2GC CRAB Ver.3Generate Earth DragonGenieGenie, the Light ElementalGenius Sleeping Dragon, Zhuge Lianggenius sleeping dragon, zhuge liangGenthruGentle Fist Master, TokiGiant Arched Sea Dragon King, VolsungGigasGigas the GreatGilgameshGinyuGinyu Force - BurterGinyu Force - GinyuGinyu Force - GuldoGinyu Force - JeiceGinyu Force - RecoomeGlacialdragon NiflheimGleaming Horned Protector Beast, ZlatorogGleaming Kouryu Emperor, FaganGleaming Light Sorceress, Ars NovaGleaming-Eyed Dragon Monk, XuanzangGluttonous Mystic, Zhu BajieGoblinGod - PiccoloGod of Dark Riches, OsirisGod of the Destroying Lance, OdinGod of the Night, Tsukuyomi DragonGoddess Hello KittyGoddess of Power, KaliGoddess of Rice Fields, KushinadaGoddess of Secrets, KaliGoddess of the Art, Ame no UzumeGoddess of the Bleak Night, PandoraGoddess of the Dead, NephthysGoddess of the Starry Sky, NutGodly Knight of the Sky, VercheGods of Hunt, Umisachi&YamasachiGoemon, the ThiefGogglerGohanGokuGold Bowl Demon, ChickenbowlGold MoltdraGold PirateGold Pirate Dragon, Anne & MaryGold Saint, AioliaGold Saint, AldebaranGold Saint, AphroditeGold Saint, Aquarius CamusGold Saint, Aries MuGold Saint, CamusGold Saint, Cancer DeathmaskGold Saint, Capricorn ShuraGold Saint, DeathmaskGold Saint, DohkoGold Saint, Gemini SagaGold Saint, Leo AioliaGold Saint, Libra DohkoGold Saint, MiloGold Saint, MuGold Saint, Pisces AphroditeGold Saint, SagaGold Saint, Sagittarius SeiyaGold Saint, Scorpio MiloGold Saint, SeiyaGold Saint, ShakaGold Saint, ShuraGold Saint, Taurus AldebaranGold Saint, Virgo ShakaGolden Fox Spirit, WolyafaGolden Monkey King, Sun WukongGon FreecssGon YeyeGore Magala & Gore NekoGore NekoGotenksGraceful General, Zhou YuGrape DragonGraviton Earth DragonGreat TenguGreat ValkyrieGreen Angel, RuelGreen ArrowGreen CarbuncleGreen ChaserGreen Chocobo&Chocobo KnightGreen DeviNyanGreen DragonGreen Essence Sorceress, ArmadelGreen FairyGreen Flame IfritGreen Flower Dragon, CasablancaGreen Gleaming Star Kirin, SakuyaGreen Grimoire, ArmadelGreen Ice LeviathanGreen Knight, DelgadoGreen Mech General, Viz AsgardGreen MoltdraGreen PirateGreen Pirate Dragon, Captain KiddGreen Puppet Master of Creation, Courage MachinaGreen Puppeteer, CourageGreen ShieldraGreen Shining DivinegonGreen Sky Fruit, Melon DragonGreen Skydragon ElysiumGreen Star Vanquishing Deity, PerseusGreen Stone Dragon, AdamantGreen-Winged Star Angel, RuelGrendelGriffinGriffin RiderGriffin Rider, GilliamGriffin, the Hunter of TempestsGrimCrystalGrimRockGryps RiderGryps Rider FinnGryps Rider, Vector FinnGuan Yinpingguan yuGuardian Divine Emperor, Liu BeiGuardian Dragon, Avalon DrakeGuardian of Dark Riches, MedjedraGuardian of Life Seiryuu, KarinGuardian of the Sacred City, AthenaGuiding Archangel, GabrielGuivre ChimeraGuldoGunmaGusting Prodigy, SasukeHadesHakumen no MonoHamahimeHand of the Dark God, MetatronHappy Forest Maiden, Red Riding HoodHarley QuinnHarley QuinnHarmony Goddess, Balancile AnotherHarpie DemonHarpie DevilHathorHati BebeHatsume no TsuboneHattori HanzoHaughty Demon Lord, BaalHeavenly Fortune Goddess, LakshmiHeavenly Guide Suzaku, LeilanHeavenly Herald, ArchangelHeavenly Wind Dragon Knight, IshtarHeaven-Shaking Archdemon, LuciferHeaven-Shaking Thunderdragon, IndraHeavy Infantry HobgoblinHeavy Metal DragonHeimdallrHelHell Deity, Jackal AnubisHell Demon, ScarletHell LardHell Queen PersephoneHell-Creating Archdemon, LuciferHelldark Blood DemonHellfire Dragon, InfernoHellfire Pyro DemonHellice Frost DemonHello KittyHello Kitty & TyrannosHello Kitty World JokerHellray Harpie DemonHellwind Taur DemonHeraheraHera MariaHera-BeorcHeraclesHera-IsHera-SowiloHera-UrHera-Ur-SenpaiHermesHidamari-sanHidden Sea Dragon Knight, CleopatraHigh Dark NinjaHigh Dark Ninja, HanzoHigh Fire NinjaHigh Light NinjaHigh Water NinjaHigh Wood NinjaHighlanderHimi UdonHinaHino KagutsuchiHisokaHobgoblinHokuto Shinken Imposter, AmibaHokuto Shinken Master, KenshiroHokuto Shinken's Successor, KenshiroHoly Angel, ArielHoly DragonHoly Emperor, ThouzerHoly Hour Dragon Knight, Jeanne d'ArcHoly Knight, ArclineHoly Night Divine Elemental, GenieHoly Night Kirin Princess, SakuyaHoly Night Santa Claus, HeraHoly Skydragon, Shangri-LaHoly Thunderdragon IndraHoly-Winged Star Angel, ArielHominal Beast, CentaurHonorable Dragon General, KanetsuguHope of Mankind, Eren YeagerHorned Fort Dragon, FortoytopsHorusHrungnirHungry Peko DragonHunt God of the Holy Bow, ArtemisHunting Deity ArtemisHurricane Volcano DragonI Love DeviBearI Love PAD BearIce Armor OgreIce Dragon NiflheimIce GolemIce GuardianIce Mechdragon, AldebaranIce OgreIce Samurai OgreIcedragon Depth PlesiosIcedragon PlesiosIcewing Twin Dragon King, BeyzulIdunn&IdunnaIdunn&Idunna, Twin GoddessesIfritImmortal Dragon, Cursed Wyrmincarnation of byakko, hakuIncarnation of Byakko, HakuIncarnation of Genbu, Meimeiincarnation of genbu, meimeiincarnation of kirin, sakuyaIncarnation of Kirin, SakuyaIncarnation of Kouryu, FaganIncarnation of Seiryuu, Karinincarnation of seiryuu, karinincarnation of suzaku, leilanIncarnation of Suzaku, LeilanIncognito Queen, AwildaIndigo Dragon Caller, SumireIndraInferno Deity Falcon, HorusInferno Sorcerer, LailaInfernodragon MuspelheimInuyashaIshida MitsunariIshikawa GoemonIsisIsle Dragon YggdrasilIvory DragonIwato's Dancing Goddess, AmenouzumeIzanagiJade Dragon Caller, SoniaJade Oracle, ParvatiJagiJajanken, Gon FreecssJasper Dragon Caller, KaedeJean KirsteinJedJeiceJelly's AngelJester Dragon, Drawn JokerJester Wizard, ChesterJewel of Toyama Bay, Velvet ShrimpJokerJoker+A. BlossomJordJudaJudarJudging-Claw Orange Dragonbound, SariaJugglerJuzaKagome HigurashiKagutsuchiKaguyaKaguya-HimeKanoKano, the Daughter of NatureKapibara-sanKapibara-san & White-sanKappaKarmic Destroyer, ShivaKaworu&Mark.06Kaworu&Mark06, Under ConstructionKeeper of Paradise, Metatronkeeper of the sacred texts, metatronKeeper of the Sacred Texts, MetatronKefkaKelpieKen-Oh, RaohKenshiroKerokerokeroppiKerokerokeroppi & PlesiosKeroppi & PlessieKhezu & Khezu NekoKhezu NekoKillua ZoldyckKingKing BaddieKing BubblieKing FlamieKing MasteringKing of Atlantis, AquamanKing of Hell, SatanKing of Toyama Bay, AmberjackKing ShyneeKing Siegfried, Blue ChampionKing WoodsieKirin of the Aurora, SakuyaKirin of the Sacred Gleam, SakuyaKirio & KuinKirio Inasa & KuinKite PenguinKitty & TyrraKitty BaddieKitty BadShyneeKitty BubblieKitty BubFlamieKitty FlaBaddieKitty FlamieKitty ShyneeKitty ShyWoodieKitty WoodBubblieKitty WoodieKittyn & MimmynaKitty's Festa JokerKnight Dragon King, NordisKnight of the Dawn, WolKOB LeonhartKobokkleKodamaKouryu the Star Emperor, FaganKozukuraKrakenKraken RiderKraken Rider, NellKrillinKrishnaKrista LenzKurapikaKuromiKuroneKurone, the Feline of the NightKushinadahimeKut-Ku NekoLakshmiLand Bowl Demon, SoybowlLardLast Nanto General, YuriaLast Son of Krypton, SupermanLeaf ChimeraLemon DragonLeolLeopard-Spotted Mystery, FuriLeorioLeviLeviathanLex Luthorlife dragon, zhuge liangLife Dragon, Zhuge LiangLife Protector Seiryuu, KarinLight Armor Dragon, AcruxLight Cat Dragon, Persian NyadraLight Courier FuuLight Dog Dragon, ChinbowdraLight Dominion RaphaelLight Dragon Emperor SaigaLight Dragon King SaigaLight Dragon King Saiga AnotherLight Insect Dragon, PulseneedleLight Lance God, Odin DragonLight Mech General, SherospadaLight Samurai Dragon, HideyoshiLight ShibamaruLight Shield KnightLight Sprite PixieLight Sprite, SunrichLight Twin Star DivinegonLight Wizard, Rei SiriusLightning Archdemon BaalLightning Black Dragonbound, TyphonLightning ChaserLightning Dark TiamatLightning Holy DragonLightning Red Dragonbound, GadiusLightning Storm, Fuma KotaroLightweight Armor Queen, PolarisLil' Black DragonLil' Blue DragonLil' Green DragonLil' Red DragonLil' White DragonLilithLilith KuromiLiu Beiliu beiLiusha River Mystic, Sha WujingLively Maiden, Princess ValkyrieLokiLoki, the FinisherLoki, the God of GuileLove Deity VenusLove Deity, Chaos VenusLove Deity, Cosmos VenusLove Deity, Feline BastetLovely Maiden, Princess ValkyrieLoving Heavenly Deities, Zeus & HeraLow Dark NinjaLow Fire NinjaLow Light NinjaLow Water NinjaLow Wood NinjaLoyal Deity, Guan YuLu Bulu buLulu PochikaLumLunar Corona Byakko, HakuMachine GolemMachine Golem Mk.IIMachine Golem Mk.IIIMad Love, Harley QuinnMaeda KeijiMagic Hand Slayer Goddess, DurgaMagma ChimeraMajin BuuMajin Buu - EvilMajin Buu - Innocent VS Pure EvilMajin Buu - PureMalboroMalboro KingMalboro King&Tonberry KingMaleficent Dragon Lord ZaerogMaleficent Phantom Dragon King, Zaerog∞MamiyaMandrakeMankind's Strongest Soldier, LeviMari&Eva Provisional Unit-05Mari&Eva Unit-08Marine GoblinMarine RiderMarine Rider RobinMarine Rider, Bard RobinMarine Spec Ops GoblinMars Light CarbuncleMartial God-Emperor, Yamato TakeruMarvelous Red Dragon Caller, Soniamarvelous red dragon caller, soniaMasquerade Guest, IzanamiMassive Blade Brave, ZweihanderMaster Candy Collector, Wicked LadyMaster of the Masquerade, Pumpkin JokerMaster Toxicologist, Poison IvyMasteringMechadragon ValhallaMedjedraMegalodranMelaburnMelagonMelody & BrachyMelon DragonMephistophelesMerari! Atsui-sanMercury Light CarbuncleMermaidMeruemMessenger of God, ArchangelMeteor Volcano DragonMid Dark NinjaMid Fire NinjaMid Light NinjaMid Water NinjaMid Wood NinjaMidnight Beast WerewolfMighty Dragon Emperor, Lifivemighty dragon general, zhao yunMighty Dragon General, Zhao YunMikasa AckermanMiko Goddess of Protection, KushinadahimeMilky Way Mechanical Star God, AlreschaMinervaMinotaurMisato&AAA WunderMisato&AAA Wunder, Main Battery GunfireMisato&AAA Wunder, Powered UpMissionary of Time, Chrono TurtleMist ChimeraMistressMistress of the Old Castle, KaliMitsukiMitsuki, the Flame FoxMochizuki ChiyomeMoogle&CarbuncleMoogle, Carbuncle & ChocoboMoon Dragon Caller, SatsukiMoon Flower Huntress, ArtemisMoon Kettle Bowl Dragon, Hagamarmoonbeam fang witch, lilithMoonbeam Fang Witch, LilithMoondragon D'spinasMoondragon Lunar D'spinasMoonlight CarbuncleMoonlit Feline Goddess, BastetMoonlit Prowler, Vampire LordMoonlit Shadow, Hattori HanzoMoral Commanding Deity, Liu Beimoral commanding deity, liu beiMore Cu Chulainn, the HeroMorgianaMori MotonariMorigannonMorigonMr. SatanMr. WalrusMugchaMugcoffeeMugcornMugmilMugteaMusic Dragon, LegelonteMusical Winged Mechanical Star God, PolluxMy MelodyMy Melody & BrachysMysterious Guest, LailaMystery of Toyama Bay, Firefly SquidMystic Astro Dragon, NebradiskMystic Crystal Dragon, CrystalSkullMystic Dark KnightMystic Flame KnightMystic Ice KnightMystic Light KnightMystic Mech Dragon, AntikytheraMystic Megalith Dragon, BaalbekMystic Painting Dragon, NazcaMystic Pentad Dragon, FolkloreMystic Pentad Dragon, KotodamaMystic Stone KnightMystical Forest Pixie, AlrauneNagaNamekian - PiccoloNameless Blade Brave, MasamuneNanto Hakuroken Master, ShewNanto Kokakuken Master, JudaNanto Seiken Master, ShinNanto Suichoken Master, ReiNappaNarakuNarga CatNargacuga & Narga CatNenekoNeo ExdeathNephthysNeptuneNeptune DragonNeteroNight Skydragon, ElysionNine-Tailed IzunaNinja HattoriNinja Hattori of the Iga SchoolNoahNoble Dragon, YorokuNoble Mechdragon, RegulusNoble Wolf King Hero, Cu ChulainnNobon Kapibara-sanNocturne Chanter, TsukuyomiNomadic Dancer, FuuNorn of the Future, SkuldNorn of the Past, UrdNorn of the Present, VerdandiNote ReaperNote Reaper PlusNutOCTOPUSOCTOPUS Ver.2OdinOdin DragonOdin, the War DeityOgreOgre CatOkuninushiOld Castle Blue Dragon Caller, SoniaOmega Blue Skydragon, Nirai KanaiOmega Holy Skydragon, Shangri-LaOmega Night Skydragon, ElysionOmega Red Skydragon, El DoradoOmega Wood Skydragon, HoraiOminous Moon Dragon Caller, SatsukiOmnipotent Harmony Goddess, Balancile AnotherOnetonOrange Dragonbound, SariaOrange Flower Dragon, HelianthusOsirisPacifying Yomi Goddess, IzanamipandoraPandoraParadise Celeb, Hera-IsParadise Jade Dragon Caller, SoniaParadise Norn, UrdParvatiParvati, the Golden GoddessPeach Garden General, Guan YinpingPeerless Strategist, Mori MotonariPermafrost Queen, Hera-IsPersephonePerseusperseusPhantom ChaserPhantom Demon King Asmo-Deus AnotherPhantom Dragon King, Zaerog∞Phantom Dragon, Animaphantom god, odinPhantom God, OdinPhantom Icedragon, Mirage PlesiosPhantom Thunder Dragon, SagirinokamiPhoenixPhoenix Blossom, Graceful ValkyriePhoenix Goddess, Valkyrie FemmePhoenix KnightPhoenix Knight HomuraPhoenix ResurrectedPhoenix RiderPhoenix Rider, ValenPiccoloPicosukePierdraPierdra Badtz-MaruPierdrawnPikePitch Black Night Princess, LilithPitouPixiePlacating Founder, OkuninushiplanPlanPlayful Star Gods, Thoth & SopdetPlesielPlesiosPlessiePlessie-beanPoison IvyPolaris & Kapibara-sanPolluxPompompurinPoogiePoogie and AirouPoufPresent EggPresent EggPresent EggPresent EggPresent EggPrincess PuntPrincess ValkittyPrincess Valkitty HeartPrincess ValkyriePrivate Military Arkham KnightProtection Demon of Dark, JyakiProtection Demon of Light, ShoukiPsychopomp Commerce Deity, HermesPsychopomp of Oblivion, GrisarPteradosPterasPterraPuchianthusPuchilipPuchiliumPuchiorchidPuchirosePui PuiPuppetmasterPuppetmaster SantaPure Demon Lord, AstarothPure Light Sun Deity, RaPure Water Sorcerer, SharonPure-Blooded Demon King, Asmodeus AnotherPurple Bowl Demon, SukibowlPurple CarbunclePurple ChaserPurple Flower Dragon, OrchidPurple Grimoire, GoetiaPurple Lotus Chanter, LakshmiPurple Queen Bee, MistressPurple ShieldraPurple Sky Fruit, Grape DragonPurple Stone Dragon, DamascusPuzzdroidPyro DemonPyro DevilQueen of Condemnation, PersephoneQueen of the Dwarfs, Snow WhiteQuintonRaRa DragonRa TAMADRARadiant God of Creation, IzanagiRadiousRaditzRaging KagatoRainbow Stone Dragon, OrichalcumRammotRangerRanger SantaRaohReaverRebel Seraph Luciferrebel seraph luciferRecca HanabishiRecoomeRed Angel, RozuelRed CapRed CarbuncleRed ChaserRed Chocobo&Chocobo KnightRed DeviNyanRed DragonRed Dragon Caller, SoniaRed Dragon God, Hino KagutsuchiRed Dragonbound, GadiusRed FairyRed Flower Dragon, BarbadosRed Giant GigasRed GoblinRed Grimoire, TheurgiaRed Ice LeviathanRed Knight, NimRed Mech General, Elder JotunnRed MoltdraRed OgreRed PirateRed Pirate Dragon, BartholomewRed Puppet Master of Destruction, Pure MachinaRed Puppeteer, PureRed Riding HoodRed Ring Sorceress, TheurgiaRed ShieldraRed Shining DivinegonRed Sky Fruit, Strawberry DragonRed Sky Wizard, ChesterRed Skydragon, El DoradoRed Wood FafnirRed-Eyed Ghost, Red CapRed-Winged Star Angel, RozuelRegent-kunReiRei&Eva Unit-00Rei&Eva Unit-00, Core FusionRei&Eva Unit-00, Suicide ATK ModeReincarnation of Athena, SaoriRelentless Destroyer, Grand TenguRenegade Hero, SephirothResting Norn, UrdRestrained Dragon Hero, Liu BeiReturning-Claw Blue Dragonbound, RyuneRevered Monkey King, Sun WukongRex NekoRich Bowl Dragon, KatsuminRihakuRinoaRoaming National Founder, OkuninushiRobinRobin+E. StickRomantic★CathyRowdy Red Samurai GoblinRoyal Hunting Beast, GriffinRuby CarbuncleRukaRuka, the Lady of the SeaRuler of the Century's End, RaohRuler of Toyama Bay, Cold AmberjackRuling Firestorm God, SetRumbling Blazing King ApolloRumbling Firedragon, Armored TyrannosSacred Divine Flower, Xiao QiaoSacred Dragon Beast, AngelionSacred Dragon King SaigaSacred Dragon King Saiga AnotherSacred Dragon Princess, Da QiaoSacred Flame Dragon, FormulaSacred Life Goddess of the Colored Sky, HathorSacred Life Goddess, HathorSacred Princess, AlmaSacred Tree Sorcerer, LeezaSaibamanSaintly Maidens' Protector, UnicornSaiyan - NappaSaiyan - RaditzSalamanderSamurai GoblinSamurai OgreSanada YukimuraSanctuary Guardian, ArchangelSandalphonSapphire CarbuncleSarasvatiSarutobi SasukeSasha BlouseSatanSatan MariaSatan, King of the UnderworldSatan's Daughter, VidelSavior Archangel, RaphaelScarecrowScarecrow+Fear GasScarlet Dragon Caller, TsubakiScarlet Eyes, KurapikaScarlet Stone Dragon, VermilionytScholarly God of Fortune, GaneshaScholarly God, GaneshaScholarship Student, IsisSchool Gang Leader, GigasScorched Claw Dragon, Flare DrallScorched Land Dragon Knight, HimikoSea Bowl Demon, TunabowlSea Deity NeptuneSea Deity, Abyss NeptuneSea Deity, Heaven NeptuneSea Deity, Neptune DragonSea Devil KrakenSea Dragon King, VolsungSea God's Songstress, SirenSea SerpentSephirothSeraph of Dawn LuciferSerpent God Demon, Viper OrochiSetSha WujingShadow Dog Dragon, ShibabowdraShadow Dragon KnightShadow Monk, XuanzangShadow Moon Dragon Knight, MulanShadow Shield KnightShadronShaitanShaitan, the Flame ElementalShardraShardranShaved Ice Specialist, Frost DemonShewShimonita KonjacShimonita LeekShinShining Dragon KnightShining Dragon SwordsmanShining Flame IfritShining Goddess of Secrets, KaliShining Ice LeviathanShining Lance Wielder, OdinShining Monk, XuanzangShining Sea Deity, IsisShining Wing Kiriko AnotherShining Wood FafnirShinji&Eva Unit-01Shinji&Eva Unit-01, First Awoken FormShinji&Kaworu&Unit-13Shinji&Kaworu&Unit-13, FIShinjo KagatoShinra Dragon God Saiga AnotherShinra Golden God MaxiusShinra Light Dragon God RyugaShinra Sacred Demon God ArkShinra Sacred Dragon God SaigaShinra Sorcerer God MoebiusShinra Soul Beast SaiShinra Sun God ApolloShinra Ultimate God KaiShiny PengdraShironShishimaruShivaShiva DragonShiva, the DestroyerShrine Priestess, KanoShugen Demon, JyakiShugen Demon, ShoukiShyneeSiegfried, the Blue ChampionSilver BansheeSilver Saint, Ophiuchus ShainaSilver Saint, ShainaSirenSleeping BeautySleeping Dragon, Zhuge Liangsleeping dragon, zhuge liangSleeping Princess, AlmaSnow Beast YeyeSnow Globe Dragon BlancSnow Globe Dragon BleuSnow Globe Dragon NoirSnow Globe Dragon RougeSnow Globe Dragon VertSnow WhiteSnow-White Beauty, Valkyrie ClaireSoaring Dragon General, Sun QuanSoaring Night Goddess of the Dead, NephthysSolar Deity ApolloSolar God of Heaven's Bow, ApolloSoldierSolitary Lion, SquallSolomon GrundySolomon Grundy, Born on a MondaySopdetSorceress's Successor, RinoaSoul Guardian Byakko, HakuSoul-Judging God of Dark Riches, OsirisSoybowlSpace-Time Sorcerer, Wee JasSparkling Goddess of Secrets, KaliSphinxSpicaSpinasSpinonSpirit of the Masquerade, AlrauneSquallSQUIDSQUID Ver.2Star Dragon Emperor, DefoudStarsea Goddess, AndromedaSteadfast Bearded Deity, Guan Yusteadfast bearded deity, guan yuStone Gaze Demon Bird, CockatriceStorm Dragon, MistrainStorm Mighty Dragon Emperor, LifiveStormwing Dragon Emperor, ThreediaStormy God-Emperor, Yamato TakeruStormy Sea Dragon, LeviaStrategic Genius, Armin ArlertStrawberry DragonStray Soul Beast IzunaStudent Council President, LuciferSuccessor of Graude Foundation, SaoriSuccubusSukibowlSummery Tourist, ChesterSun Deity RaSun Dragon Caller, KannaSun God, Ra Dragonsun quanSun QuanSun Wukongsun wukongSundragon PteradosSundragon Sol PteradosSunlight CarbuncleSunrise Bowl Dragon, GashoSuper Awoken HadesSuper Awoken ZeusSuper DarumaSuper GunmaSuper HadesSuper Saiyan - GohanSuper Saiyan - GokuSuper Saiyan - GotenksSuper Saiyan - TrunksSuper Saiyan - VegetaSuper Saiyan 3 - GokuSuper Saiyan 3 - GotenksSuper ZeusSupergirlSupermanSurging Demon Lord, BelialSurtrSurvey Corp Lance Corporal, LeviSurvey Corp Squad Leader, Zoë HangeSurvey Corps Commander, Erwin SmithSurvivor of Krypton, SupergirlSusanoSusano no MikotoSwift Dragon Emperor, ThreediaSwoop-Winged CyberBeast, PhactSword-Wielding God of Victory, FreyrSylphSylph, the Wind ElementalTaiko God Don-chanTaiko Master! Don-chanTakeminakataTAMADRApurinTAMADRApurin A La ModeTaur DemonTaur DevilTendo JigokuTenshinhanThanatosThanatos, the Dark ElementalThe Eternal Bird, PhoenixThe Fifth AngelThe Fifth Angel - Assault ModeThe FlashThe Fourth AngelThe Fourth Angel - Assault ModeThe Greatest Enemy, RaohThe Jelly's AngelsThe Ninth AngelThe Ninth Angel - Assault ModeThe Norn SkuldThe Norn UrdThe Norn VerdandiThe Retriever of Mjolnir, ThorThe Sixth AngelThe Sixth Angel - Assault ModeThe Tenth AngelThe Tenth Angel - Assault ModeThe Warden, UighurThiefThorThor, the God of LightningThor, the Wielder of MjolnirThorn Princess, Sleeping BeautyThorned Goddess, Valkyrie ElizeThorned Guardian, Graceful ValkyrieThorned Mechanical Star God, AntaresThothThought Spinner Norn, VerdandiThouzerThumbelinaThunder Armor Dragon, AlbireoThunder ChimeraThunder GearThunder Giant, CyclopsThunder Horn Master, Fuma KotaroThunderbolt, Killua ZoldyckThunderdragon IndraThundering CyberDragon, ShedarTiamatTidusTigrex & Rex NekoTime MageTinnin&MetatronTitanTokiTome-Creating White Phantom Demon, IlmTonberryTonberry KingTop DroidragonTopaz CarbuncleToraTornado Holy DragonTorrential Fenrir Knight, KamuiTortoise Mountain Genbu, MeimeiToyama Bay Tradition, Himi UdonToyama Taste, Himi UdonToyceratopsToytopsTrance ViviTrance ZidaneTreantTree Dragon War Princess, Saint PlanTriptonTrunksTsuku YomiTsukuyomi TAMADRATsumagoi CabbageTunabowlTwilight Sorcerer, ChesterTwin Blade Brave, ShotelTwin Dragon, BeyzulTwin Dragon, WangrenTwintonTwisted Mountain God, Grand TenguTyranTyrannical Pupil, JagiTyrannosTyrraTyrra-beanUFOUFO Ver.2UighurUkai MagorokuUltimate Alex SantaUltimate ArcherUltimate BahamutUltimate BerserkerUltimate Black MageUltimate DragoonUltimate FencerUltimate Fencer SantaUltimate GohanUltimate Lifeform, DoomsdayUltimate Moogle&CarbuncleUltimate PuppetmasterUltimate Puppetmaster SantaUltimate RangerUltimate Ranger SantaUltimate SoldierUltimate Taiko God Don-chanUltimate ThiefUltimate Time MageUmisachi&YamasachiUnderlord Arch HadesUnderlord HadesUnderlord Inferno HadesUnderworld Guard Dog, CerberusUnderworld Protector Genbu, MeimeiUnderworld Tyrant, BaphometUndineUndine, the Water ElementalUnicornUnicorn RiderUnicorn Rider, LieneUnicorn, the Guardian of SaintsUnifying Martial Deity, Cao CaoUnleashed Knight Dragon King, NordisUnrequited Warrior Woman, MamiyaUnwavering Demon Dragon, NobunagaUnyielding Archangel, MichaelUnyielding Samurai Dragon King, ZaerogUr-ChimeraUshio & ToraUshio Aotsuki & ToraUttorin White-sanUubvaliant & loyal deity, guan yuValiant & Loyal Deity, Guan YuValkyrieVampireVampire LordVanquishing Deity, PerseusVegetaVelvet ShrimpVenom-Enhanced BaneVenomous CopperheadVenusVercheVerche, the Knight of the SkyVibrant Butterfly Dragon, SwallowtailViciousdragon HelheimVidelVigilantes, Batgirl & BatwomanVigorous Hunt Gods, Umisachi & YamasachiViper OrochiVishnuViviVoice of God, MetatronVoice of God, Metatron TAMADRAVolcano DragonVolt ChimeraVow and Limitation, Gon FreecsVritraWadatsumiWail of Death, Silver BansheeWailing Bleak Night Goddess, PandoraWandering Wizard, Wee JasWar Deity AresWar Deity MinervaWar Deity of Fury, AresWar Deity of the Magic Spear, Odinwar deity of the night, tsukuyomiWar Deity of the Night, TsukuyomiWar Deity, Dark MinervaWar Deity, Saint MinervaWar God of Metal, TakeminakataWar Princess Asmodeus AnotherWarded Storm God, Susano no MikotoWaronwarrior rose, graceful valkyrieWarrior Rose, Graceful ValkyrieWater Armor Dragon, GienahWater Cat Dragon, Russian NyadraWater Courier RukaWater Deity, Holy Isiswater deity, holy isisWater Dog Dragon, TosabowdraWater Dominion GabrielWater Dragon KnightWater Dragon SwordsmanWater Horse KelpieWater Insect Dragon, DeadjumperWater Mech Warrior, MidgardWater PengdraWater Samurai Dragon, KenshinWater ShibamaruWater Sprite, SharuluWater Twin Star LeviathanWater Wizard, SharonWerewolfWhite BaronWhite Beast Demon, IlmWhite Coach Princess, CinderellaWhite DeviNyanWhite DragonWhite FighterWhite Hot Dancing Goddess, ParvatiWhite KnightWhite Rainbow Ark, NoahWhite-sanWicked LadyWild Flowerdragon, Howling BrachysWill-O'-WispWind Archdemon AstarothWind ChaserWind Courier KanoWind GearWind Mechdragon, CanopusWind Prodigy, SasukeWind Twin Star FafnirWinronWisdom of Athena, Wonder WomanWise and Moral Goddess, SarasvatiWitch of the Night, LilithWolWolf Hero, Ignis Cu ChulainnWolyafaWonder WomanWonders of Appetite, Sasha BlouseWood Armor Dragon, BecruxWood Cat Dragon, Calico NyadraWood Dog Dragon, ShibawandraWood Dominion MichaelWood Ice OgreWood Mech Warrior, AsgardWood PengdraWood Sage TreantWood Samurai Dragon, MasamuneWood Samurai OgreWood ShibamaruWood Skydragon, HoraiWood Sprite, LilyWood Wizard, LeezaWoodBahnWooden Dark TiamatWoodsieWorld Tree Sprite, AlrauneYakonyamato takeruYamato TakeruYamatsumiYamchaYellow CarbuncleYellow ChaserYellow FairyYellow Grimoire, Ars NovaYellow ShieldraYellow Sky Fruit, Lemon DragonYian Kut-Ku & Kut-Ku NekoYomiYomi DragonYomi God, IzanamiYomi Mistress, IzanamiYoupiYunaYuriaZabgonZabsharkZarbonZazanZeromusZeta HydraZeusZeus & HeraZeus MercuryZeus VulcanZeus-DiosZhang FeiZhao Yunzhao yunZhou YuZhu BajieZidaneZinogre & Ogre CatZlatorogZoë Hange
+
+
+
+Monster Strength
+
+
+
+
+
+The diagram below is the result of member voting, it doesn't represent the view of GungHo or PDX.
+
+Rating: 8.9
+ 32 people voted 
+
+
+
+Created with Highcharts 3.0.9Active SkillLeader SkillTeam SynergyAppearanceAwoken Skills5010
+
+
+ Rate this monster 
+
+
+
+Active Skill 12345678910
+Leader Skill 12345678910
+Awoken Skills 12345678910
+Team Synergy 12345678910
+Appearance 12345678910
+  
+
+
+
+
+Abilities
+
+
+
+
+
+
+
+Active Skill:Water Enhancement
+Effects:Reduces cooldown of other skills by 1 turn. Water attribute ATK x1.5 for 3 turns.
+Cool Down:17 Turns ( 9 Turns at Lv.9 )
+Same Skill:
+
+
+
+Leader Skill:Grace of the Golden Apple
+Effects:Water attribute & Balanced type cards ATK x2, RCV x2.
+
+
+
+Awoken Skills:
+
+
+ 
+
+ (adsbygoogle = window.adsbygoogle || []).push({});   
+  Grayed out JP cards	 
+
+
+
+Evolution Chart
+
+
+
+
+
+
+
+
+
+370
+
+
+
+
+Lv.50
+
+
+371
+
+
+
+
+
+
+
+
+
+
+Ulti. Evolution  
+
+
+653
+
+
+
+
+
+
+Ulti. Evolution  
+
+
+1345
+
+
+
+
+
+
+Ulti. Evolution  
+
+
+2393
+
+
+
+
+You can reverse the Ultimate Evolution by using:
+
+
+
+
+
+
+Norse God Series
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Drop Locations for #653
+
+
+
+
+
+
+
+This card can be obtained by:
+- Evolution from Idunn&Idunna, Twin Goddesses
+
+
+
+
+
+
+Tell us what you think about this card
+
+
+
+
+
+Add your comment
+Sort: Newest | Oldest | Highest rated
+
+
+
+12
+
+
+
+By olann#31726 1 year ago ( 6.4.3 ) 
+
+Two waifu for the price of one
+
+
+2
+
+
+
+By Xeno_SA#22326 1 year ago ( 6.3.0 ) 
+
+Why the hell did she get balanced. She should join Hermes and be physical.
+
+
+
+44
+
+
+
+joleni#17588 1 year ago ( 6.3.0 ) 
+
+Twins. Balanced. Get it?
+
+
+7
+
+
+
+Xeno_SA#22326 in reply to joleni#17588 1 year ago ( 6.3.0 ) 
+
+*slow-clap*
+
+
+4
+
+
+
+Isolated#29167 in reply to billshotCA#28380 1 year ago ( 6.3.0 ) 
+
+LOL i for some reason found that to be too funny..........i feel lame.
+
+
+4
+
+
+
+Red#28047 in reply to Isolated#29167 1 year ago ( 6.3.1 ) 
+
+For some reason I found it funny that you feel lame…….…now I feel lame.
+
+
+1
+
+
+
+Lex#26022 in reply to Stan#30127 1 year ago ( 6.5.2 ) 
+
+Recycled jokes are recycled.
+
+
+0
+
+
+
+Stan#30127 in reply to Red#28047 1 year ago ( 6.4.5 ) 
+
+For some reason i found it funny that u both feel lame.............now i feel lame
+
+
+0
+
+
+
+billshotCA#28380 in reply to joleni#17588 1 year ago ( 6.3.0 ) 
+
+Ah I get it
+
+
+0
+
+
+
+bigbuff#41678 in reply to Lex#26022 1 year ago ( 6.5.5 ) 
+
+Saying recycled jokes are recycled is recycled.
+
+
+0
+
+
+
+Skyknight#11392 1 year ago ( 6.5.5 ) 
+
+Truth be told, Eternal Idunn's healer type makes more sense when you look at the stat comparatives. How did Archer Idunn get balanced when her recovery vastly outpaces her other stats?!
+
+
+
+1
+
+
+
+By Owl313#30194 1 year ago ( 6.3.1 ) 
+
+If you don't get Hermes, this is a must have, and Vice-Versa. There leader skill is amazingly helpful, since good water monsters are so easy to farm, like Siren, Aurora Dragon, and is you started with it, Plesios.
+
+
+
+2
+
+
+
+Black Man#19263 1 year ago ( 6.4.2 ) 
+
+With all due respect, Aurora Dragon and Plesios are not exactly good water monsters - Siegfried and Hera-is are far better and farmable as well.
+
+
+0
+
+
+
+Owl313#30194 in reply to Black Man#19263 1 year ago ( 6.4.3 ) 
+
+Well, they are good until you get those, since the heartbreakers take forever to level up and evo, and Hera-Is is harder to get, though I suppose that other monsters like Megalodran and such would be better...
+
+
+1
+
+
+
+By Isoscope#37693 1 year ago ( 6.4.3 ) 
+
+Does anybody else notice that as they evolve, they become happier?
+
+
+
+3
+
+
+
+-Striku-#37071 1 year ago ( 6.4.3 ) 
+
+It's like Frozen!
+
+
+1
+
+
+
+Stan#30127 in reply to -Striku-#37071 1 year ago ( 6.4.5 ) 
+
+Yay someone else likes frozen too!
+
+
+-1
+
+
+
+Psykios#28707 in reply to -Striku-#37071 1 year ago ( 6.4.5 ) 
+
+Maybe they look happier because Elsa--I mean Idunna Let It Go.
+
+
+-1
+
+
+
+Aures#46039 1 year ago ( 6.4.5 ) 
+
+Also, the icon looks more like a two person selfie (technically not a SELFie, but still...)
+
+
+0
+
+
+
+By -Striku-#37071 1 year ago ( 6.4.5 ) 
+
+ULTI evo announced! Sadly, when you evolve it, the leader skill will abolish the idunn&idunna/Hermes combo leader team
+
+
+
+0
+
+
+
+jeff#6784 1 year ago ( 6.4.5 ) 
+
+That's true, but will become a great addition to a healer team. 1.35x hp isn't a huge stat boost, but for a healer team, every little bit helps. I can't wait for the ult to come to the US version.
+
+
+0
+
+
+
+By Joshua x#42888 1 year ago ( 6.4.5 ) 
+
+If I use I&I with subs; sun quan, siren, and two other healers, with a blue valk as helper, would I get both skills (attack x2 from I&I and attack x3 blue valk) per orb match?
+
+
+
+0
+
+
+
+nerdotaku#42741 1 year ago ( 6.4.5 ) 
+
+Yes! But this I&I is balance type.
+Last edited by nerdotaku 1 year ago ( 6.4.5 )
+
+
+0
+
+
+
+By Chrono#40569 1 year ago ( 6.5.2 ) 
+
+Very good card and charming characters! Automatic twin sexiness boost, too :D
+
+Being twins, two-prong attack would've made sense on them though. Sad that this flavor touch was ditched in favor of making the Norse gods similar to each other.
+
+
+0
+
+
+
+By Angry#57600 9 months ago ( 7.3.0 ) 
+
+I do and I dont know
+
+
+0
+
+
+
+By Jorosho#60859 4 months ago ( 8.0.4 ) 
+
+Suddenly the Twin's skill changed from yesterday. The "Inflict Water damage equal to ATK x30 to 1 enemy. Affected by enemy element and defense" disappeared. Anybody know what happened and can I get it back!?
+
+
+
+Please follow the guidelines when posting a comment:
+- Your comment must be in English or it will be removed.
+- Stay on topic, only post comments that will further the discussion.
+- Do not post that you are looking for friends and do not post anyone's user id.
+
+
+You are not logged in. Please sign in or register an account to add your comment.
+
+
+
+ (adsbygoogle = window.adsbygoogle || []).push({}); 
+
+
+
+These are parties that other players recommend for this monster
+
+
+
+
+
+
+
+
+The Thief Descended!
+Hera-Ur Descended!
+Poring Tower
+The Thief Descended!
+Hera-Ur Descended!
+Takeminakata Descended!
+Takeminakata Descended!
+Hello Kitty Collab
+
+
+
+
+
+
+Links
+
+
+
+
+
+
+
+No.648AthenaNo.649Awoken AthenaNo.650Zeus-Dios
+No.651Awoken Zeus-DiosNo.652Freyr, the Blazing SwordsmanNo.653Idunn&Idunna, the Twin Archers
+No.654Freyja, the Fertility GoddessNo.655Thor, the Wielder of MjolnirNo.656Loki, the Finisher
+No.657Holy Thunderdragon IndraNo.658Evil Darkdragon VritraNo.659Puzzdroid
+
+
+
+ 
+ 
+ 
+
+
+
+
+Home / Monster Book / God / Idunn&Idunna, the Twin Archers
+
+
+ 
+
+
+Monsters
+
+
+
+Monster Book
+
+
+
+Max Stats Comparison
+
+
+
+
+Dungeons
+
+
+
+Normal Dungeons
+
+
+
+Special Dungeons
+
+
+
+Technical Dungeons
+
+
+
+
+Skills
+
+
+
+Active Skill List
+
+
+
+Leader Skill List
+
+
+
+Awoken Skill List
+
+
+
+Orb Changer List
+
+
+
+Fire
+
+
+
+Water
+
+
+
+Wood
+
+
+
+Light
+
+
+
+Dark
+
+
+
+Heart
+
+
+
+
+Version Conflicts
+
+
+
+
+Simulator
+
+
+
+Team Simulator
+
+
+
+Rare REM
+
+
+
+Pal REM
+
+
+
+Airour de Bazaar REM
+
+
+
+Batman Arkham REM
+
+
+
+Bikkuriman REM
+
+
+
+Crystal Defenders REM
+
+
+
+DC Universe REM
+
+
+
+Dragon Ball REM
+
+
+
+Duel Masters REM
+
+
+
+Evangelion REM
+
+
+
+Final Fantasy REM
+
+
+
+Fist of the North Star REM
+
+
+
+Hello Kitty REM
+
+
+
+Hunter x Hunter REM
+
+
+
+Monster Hunter 4G REM
+
+
+
+N/A REM
+
+
+
+PAD Academy REM
+
+
+
+Pink Dragon Rare REM
+
+
+
+Saint Seiya REM
+
+
+
+Shinrabansho Choco REM
+
+
+
+
+Friend Finder
+
+
+
+English
+
+
+
+Japanese
+
+
+
+
+Articles
+
+
+
+Use of Magic Stones
+
+
+
+Awoken Skill Guide
+
+
+
+Beginner's Guide
+
+
+
++1 Egg Explanation
+
+
+
+How to Backup
+
+
+
+Previous God Festival
+
+
+
+
+PADW
+
+
+
+Game Guide
+
+
+
+Skill Orbs
+
+
+
+Stages
+
+
+
+Avatama Book
+
+
+
+
+Others
+
+
+
+Combo Damage Calculator
+
+
+
+Stamina Calculator
+
+
+
+Player Group Checker
+
+
+
+Rank Chart
+
+
+
+Wallpaper
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=728470020597619";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));  
+ Bug Report
+
+
+
+
+
+
+
+
+
+Hi, Guest | sign in or sign up! 
+
+ 
+
+ (adsbygoogle = window.adsbygoogle || []).push({});  
+
+
+  
+ 
+Popular Search: Awoken Idunn Idunna, Puzzle Dragons, 1778, Satan Descended!, Sea Devil Kraken, Phoenix Resurrected, Awoken Sakuya, Awoken Shiva, Unicorn The Guardian of Saints, Griffin The Hunter of Tempests 
+
+
+
+        
+
+
+Copyright © 2013-2015 Puzzle Dragon X 4.00. All rights reserved. Puzzle & Dragons logo and all related images are registered
+trademarks or trademarks of GungHo Online Entertainment, Inc. Thanks and Credits.Webmaster EN IGN:
+BetaTester ( 347,340,257 )
+
+Disclaimer: This is an unofficial site and has no connections with GungHo Online. Use of our website and the content is at your own risk. We assume no responsibility for, and offer no warranties or representations regarding, the accuracy, reliability, completeness or timeliness of any of the content. Privacy
+
+
+ var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-10277325-7']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();                $(document).ready(function() { var pluslist = '<option value="99">99</option><option value="98">98</option><option value="97">97</option><option value="96">96</option><option value="95">95</option><option value="94">94</option><option value="93">93</option><option value="92">92</option><option value="91">91</option><option value="90">90</option><option value="89">89</option><option value="88">88</option><option value="87">87</option><option value="86">86</option><option value="85">85</option><option value="84">84</option><option value="83">83</option><option value="82">82</option><option value="81">81</option><option value="80">80</option><option value="79">79</option><option value="78">78</option><option value="77">77</option><option value="76">76</option><option value="75">75</option><option value="74">74</option><option value="73">73</option><option value="72">72</option><option value="71">71</option><option value="70">70</option><option value="69">69</option><option value="68">68</option><option value="67">67</option><option value="66">66</option><option value="65">65</option><option value="64">64</option><option value="63">63</option><option value="62">62</option><option value="61">61</option><option value="60">60</option><option value="59">59</option><option value="58">58</option><option value="57">57</option><option value="56">56</option><option value="55">55</option><option value="54">54</option><option value="53">53</option><option value="52">52</option><option value="51">51</option><option value="50">50</option><option value="49">49</option><option value="48">48</option><option value="47">47</option><option value="46">46</option><option value="45">45</option><option value="44">44</option><option value="43">43</option><option value="42">42</option><option value="41">41</option><option value="40">40</option><option value="39">39</option><option value="38">38</option><option value="37">37</option><option value="36">36</option><option value="35">35</option><option value="34">34</option><option value="33">33</option><option value="32">32</option><option value="31">31</option><option value="30">30</option><option value="29">29</option><option value="28">28</option><option value="27">27</option><option value="26">26</option><option value="25">25</option><option value="24">24</option><option value="23">23</option><option value="22">22</option><option value="21">21</option><option value="20">20</option><option value="19">19</option><option value="18">18</option><option value="17">17</option><option value="16">16</option><option value="15">15</option><option value="14">14</option><option value="13">13</option><option value="12">12</option><option value="11">11</option><option value="10">10</option><option value="9">9</option><option value="8">8</option><option value="7">7</option><option value="6">6</option><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option><option value="0">0</option>';$("#plushp").append(pluslist);$("#plusattack").append(pluslist);$("#plusrecover").append(pluslist);var hp_curve_original_level = [[1, 966], [2, 968], [3, 972], [4, 977], [5, 983], [6, 990], [7, 998], [8, 1006], [9, 1015], [10, 1024], [11, 1034], [12, 1045], [13, 1056], [14, 1067], [15, 1079], [16, 1091], [17, 1104], [18, 1117], [19, 1130], [20, 1144], [21, 1159], [22, 1173], [23, 1188], [24, 1204], [25, 1219], [26, 1235], [27, 1251], [28, 1268], [29, 1285], [30, 1302], [31, 1320], [32, 1338], [33, 1356], [34, 1374], [35, 1393], [36, 1412], [37, 1431], [38, 1451], [39, 1470], [40, 1490], [41, 1511], [42, 1531], [43, 1552], [44, 1573], [45, 1594], [46, 1616], [47, 1638], [48, 1660], [49, 1682], [50, 1705], [51, 1727], [52, 1750], [53, 1773], [54, 1797], [55, 1820], [56, 1844], [57, 1868], [58, 1893], [59, 1917], [60, 1942], [61, 1967], [62, 1992], [63, 2017], [64, 2043], [65, 2068], [66, 2094], [67, 2121], [68, 2147], [69, 2173], [70, 2200], [71, 2227], [72, 2254], [73, 2282], [74, 2309], [75, 2337], [76, 2365], [77, 2393], [78, 2421], [79, 2449], [80, 2478], [81, 2507], [82, 2536], [83, 2565], [84, 2594], [85, 2624], [86, 2653], [87, 2683], [88, 2713], [89, 2744], [90, 2774], [91, 2804], [92, 2835], [93, 2866], [94, 2897], [95, 2928], [96, 2960], [97, 2991], [98, 3023], [99, 3055]]; var atk_curve_original_level = [[1, 821], [2, 822], [3, 823], [4, 824], [5, 825], [6, 827], [7, 829], [8, 831], [9, 833], [10, 836], [11, 838], [12, 841], [13, 844], [14, 847], [15, 850], [16, 853], [17, 856], [18, 859], [19, 863], [20, 866], [21, 870], [22, 874], [23, 877], [24, 881], [25, 885], [26, 889], [27, 894], [28, 898], [29, 902], [30, 906], [31, 911], [32, 915], [33, 920], [34, 925], [35, 930], [36, 934], [37, 939], [38, 944], [39, 949], [40, 954], [41, 959], [42, 965], [43, 970], [44, 975], [45, 981], [46, 986], [47, 992], [48, 997], [49, 1003], [50, 1009], [51, 1015], [52, 1020], [53, 1026], [54, 1032], [55, 1038], [56, 1044], [57, 1050], [58, 1057], [59, 1063], [60, 1069], [61, 1075], [62, 1082], [63, 1088], [64, 1095], [65, 1101], [66, 1108], [67, 1114], [68, 1121], [69, 1128], [70, 1135], [71, 1142], [72, 1148], [73, 1155], [74, 1162], [75, 1169], [76, 1177], [77, 1184], [78, 1191], [79, 1198], [80, 1205], [81, 1213], [82, 1220], [83, 1227], [84, 1235], [85, 1242], [86, 1250], [87, 1258], [88, 1265], [89, 1273], [90, 1281], [91, 1288], [92, 1296], [93, 1304], [94, 1312], [95, 1320], [96, 1328], [97, 1336], [98, 1344], [99, 1352]]; var rcv_curve_original_level = [[1, 346], [2, 346], [3, 347], [4, 347], [5, 348], [6, 348], [7, 349], [8, 349], [9, 350], [10, 351], [11, 352], [12, 353], [13, 354], [14, 355], [15, 356], [16, 357], [17, 358], [18, 359], [19, 360], [20, 362], [21, 363], [22, 364], [23, 365], [24, 367], [25, 368], [26, 370], [27, 371], [28, 372], [29, 374], [30, 375], [31, 377], [32, 379], [33, 380], [34, 382], [35, 383], [36, 385], [37, 387], [38, 388], [39, 390], [40, 392], [41, 394], [42, 396], [43, 397], [44, 399], [45, 401], [46, 403], [47, 405], [48, 407], [49, 409], [50, 411], [51, 413], [52, 415], [53, 417], [54, 419], [55, 421], [56, 423], [57, 425], [58, 427], [59, 429], [60, 431], [61, 434], [62, 436], [63, 438], [64, 440], [65, 443], [66, 445], [67, 447], [68, 449], [69, 452], [70, 454], [71, 456], [72, 459], [73, 461], [74, 464], [75, 466], [76, 469], [77, 471], [78, 473], [79, 476], [80, 478], [81, 481], [82, 484], [83, 486], [84, 489], [85, 491], [86, 494], [87, 496], [88, 499], [89, 502], [90, 504], [91, 507], [92, 510], [93, 512], [94, 515], [95, 518], [96, 521], [97, 523], [98, 526], [99, 529]]; var hp_curve_original_exp = [[0, 966], [42, 968], [238, 972], [656, 977], [1346, 983], [2352, 990], [3710, 998], [5454, 1006], [7616, 1015], [10224, 1024], [13304, 1034], [16884, 1045], [20987, 1056], [25636, 1067], [30854, 1079], [36663, 1091], [43082, 1104], [50132, 1117], [57833, 1130], [66203, 1144], [75261, 1159], [85024, 1173], [95511, 1188], [106737, 1204], [118720, 1219], [131475, 1235], [145020, 1251], [159369, 1268], [174538, 1285], [190542, 1302], [207395, 1320], [225112, 1338], [243708, 1356], [263196, 1374], [283591, 1393], [304905, 1412], [327153, 1431], [350348, 1451], [374502, 1470], [399628, 1490], [425740, 1511], [452850, 1531], [480970, 1552], [510112, 1573], [540289, 1594], [571513, 1616], [603795, 1638], [637147, 1660], [671580, 1682], [707107, 1705], [743738, 1727], [781484, 1750], [820358, 1773], [860368, 1797], [901528, 1820], [943847, 1844], [987336, 1868], [1032005, 1893], [1077866, 1917], [1124928, 1942], [1173202, 1967], [1222699, 1992], [1273427, 2017], [1325398, 2043], [1378621, 2068], [1433106, 2094], [1488863, 2121], [1545901, 2147], [1604232, 2173], [1663863, 2200], [1724805, 2227], [1787066, 2254], [1850657, 2282], [1915587, 2309], [1981865, 2337], [2049500, 2365], [2118502, 2393], [2188878, 2421], [2260639, 2449], [2333794, 2478], [2408351, 2507], [2484319, 2536], [2561707, 2565], [2640523, 2594], [2720777, 2624], [2802477, 2653], [2885632, 2683], [2970250, 2713], [3056339, 2744], [3143908, 2774], [3232966, 2804], [3323520, 2835], [3415579, 2866], [3509152, 2897], [3604246, 2928], [3700870, 2960], [3799031, 2991], [3898739, 3023], [4000000, 3055]]; var atk_curve_original_exp = [[0, 821], [42, 822], [238, 823], [656, 824], [1346, 825], [2352, 827], [3710, 829], [5454, 831], [7616, 833], [10224, 836], [13304, 838], [16884, 841], [20987, 844], [25636, 847], [30854, 850], [36663, 853], [43082, 856], [50132, 859], [57833, 863], [66203, 866], [75261, 870], [85024, 874], [95511, 877], [106737, 881], [118720, 885], [131475, 889], [145020, 894], [159369, 898], [174538, 902], [190542, 906], [207395, 911], [225112, 915], [243708, 920], [263196, 925], [283591, 930], [304905, 934], [327153, 939], [350348, 944], [374502, 949], [399628, 954], [425740, 959], [452850, 965], [480970, 970], [510112, 975], [540289, 981], [571513, 986], [603795, 992], [637147, 997], [671580, 1003], [707107, 1009], [743738, 1015], [781484, 1020], [820358, 1026], [860368, 1032], [901528, 1038], [943847, 1044], [987336, 1050], [1032005, 1057], [1077866, 1063], [1124928, 1069], [1173202, 1075], [1222699, 1082], [1273427, 1088], [1325398, 1095], [1378621, 1101], [1433106, 1108], [1488863, 1114], [1545901, 1121], [1604232, 1128], [1663863, 1135], [1724805, 1142], [1787066, 1148], [1850657, 1155], [1915587, 1162], [1981865, 1169], [2049500, 1177], [2118502, 1184], [2188878, 1191], [2260639, 1198], [2333794, 1205], [2408351, 1213], [2484319, 1220], [2561707, 1227], [2640523, 1235], [2720777, 1242], [2802477, 1250], [2885632, 1258], [2970250, 1265], [3056339, 1273], [3143908, 1281], [3232966, 1288], [3323520, 1296], [3415579, 1304], [3509152, 1312], [3604246, 1320], [3700870, 1328], [3799031, 1336], [3898739, 1344], [4000000, 1352]]; var rcv_curve_original_exp = [[0, 346], [42, 346], [238, 347], [656, 347], [1346, 348], [2352, 348], [3710, 349], [5454, 349], [7616, 350], [10224, 351], [13304, 352], [16884, 353], [20987, 354], [25636, 355], [30854, 356], [36663, 357], [43082, 358], [50132, 359], [57833, 360], [66203, 362], [75261, 363], [85024, 364], [95511, 365], [106737, 367], [118720, 368], [131475, 370], [145020, 371], [159369, 372], [174538, 374], [190542, 375], [207395, 377], [225112, 379], [243708, 380], [263196, 382], [283591, 383], [304905, 385], [327153, 387], [350348, 388], [374502, 390], [399628, 392], [425740, 394], [452850, 396], [480970, 397], [510112, 399], [540289, 401], [571513, 403], [603795, 405], [637147, 407], [671580, 409], [707107, 411], [743738, 413], [781484, 415], [820358, 417], [860368, 419], [901528, 421], [943847, 423], [987336, 425], [1032005, 427], [1077866, 429], [1124928, 431], [1173202, 434], [1222699, 436], [1273427, 438], [1325398, 440], [1378621, 443], [1433106, 445], [1488863, 447], [1545901, 449], [1604232, 452], [1663863, 454], [1724805, 456], [1787066, 459], [1850657, 461], [1915587, 464], [1981865, 466], [2049500, 469], [2118502, 471], [2188878, 473], [2260639, 476], [2333794, 478], [2408351, 481], [2484319, 484], [2561707, 486], [2640523, 489], [2720777, 491], [2802477, 494], [2885632, 496], [2970250, 499], [3056339, 502], [3143908, 504], [3232966, 507], [3323520, 510], [3415579, 512], [3509152, 515], [3604246, 518], [3700870, 521], [3799031, 523], [3898739, 526], [4000000, 529]]; window.plot1 = $.jqplot('chart1', [hp_curve_original_level], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0 },yaxis: { pad: 0, max: 7000 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%s Lv, %s HP'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]});window.plot2 = $.jqplot('chart2', [atk_curve_original_level], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0 },yaxis: { pad: 0, max: 2500 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%s Lv, %s ATK'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]});window.plot3 = $.jqplot('chart3', [rcv_curve_original_level], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0 },yaxis: { pad: 0, max: 900 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%s Lv, %s RCV'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]});window.plot4 = $.jqplot('chart4', [hp_curve_original_exp], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0, tickOptions: { formatter: function (formatString, value) { if (value > 0) { return(value/1000000+'m'); } else { return value; } } } },yaxis: { pad: 0, max: 7000 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%d Exp, %s HP'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]});window.plot5 = $.jqplot('chart5', [atk_curve_original_exp], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0, tickOptions: { formatter: function (formatString, value) { if (value > 0) { return(value/1000000+'m'); } else { return value; } } } },yaxis: { pad: 0, max: 2500 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%d Exp, %s ATK'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]});window.plot6 = $.jqplot('chart6', [rcv_curve_original_exp], {animate: true, animateReplot: true,seriesDefaults: {lineWidth: 4,showMarker: false,shadow: true,rendererOptions: { smooth: true }},grid: {borderWidth: 0,background: 'rgba(0,0,0,0.1)',gridLineColor: 'rgba(255,255,255,0.3)',shadow: false,},axes: {xaxis: { pad: 0, tickOptions: { formatter: function (formatString, value) { if (value > 0) { return(value/1000000+'m'); } else { return value; } } } },yaxis: { pad: 0, max: 900 }},highlighter: {show: true,tooltipAxes: 'both',tooltipLocation : 'nw',useAxesFormatters: false,formatString:'%d Exp, %s RCV'},legend: {show: true,placement: 'insideGrid',location: 'nw'},series:[{ label: 'Idunn&Idunna, the Twin Archers' }]}); $("#statsbutton").attr("disabled",false); $("#experiencebutton").attr("disabled",false); $("#stats").submit(function() { $("#statsbutton").attr("disabled",true); }); $("#experience").submit(function() { $("#experiencebutton").attr("disabled",true); }); var oldStart = 0; $.fn.dataTableExt.oStdClasses["sFilter"] = "refine"; $('.statcomparison').dataTable({ "aaSorting": [ [5,'asc'] ], "sDom": '<"top">rt<"bottom"><"clear">', "iDisplayLength": 40, "sPaginationType": "full_numbers" }); }); $(function(){init_container_classes();$("select.monster-tarlevel-select[name=curlevel],#plushp,#plusattack,#plusrecover").change(function(){monster_statCalc()})}); function init_container_classes(){$("td.statlevel").next("td").addClass("minlevel");$("td.statlevel").next("td").next("td").addClass("maxlevel");$("td.statlevel").next("td").next("td").next("td").addClass("curlevel green");$("td.stathp").next("td").addClass("minhp");$("td.stathp").next("td").next("td").addClass("maxhp");$("td.stathp").next("td").next("td").next("td").addClass("curhp green");$("td.statatk").next("td").addClass("minatk");$("td.statatk").next("td").next("td").addClass("maxatk");$("td.statatk").next("td").next("td").next("td").addClass("curatk green"); $("td.statrcv").next("td").addClass("minrcv");$("td.statrcv").next("td").next("td").addClass("maxrcv");$("td.statrcv").next("td").next("td").next("td").addClass("currcv green");$("td.statweight").next("td").addClass("minweight");$("td.statweight").next("td").next("td").addClass("maxweight");$("td.statweight").next("td").next("td").next("td").addClass("curweight green");$("td.statsell").next("td").addClass("sell-price-base");$("td.statsell").next("td").next("td").addClass("sell-price-lv-max");$("td.statsell").next("td").next("td").next("td").addClass("cursell green"); $("td.statexp").next("td").addClass("fodder-base");$("td.statexp").next("td").next("td").addClass("fodder-lv-max");$("td.statexp").next("td").next("td").next("td").addClass("curfodder green")} function monster_statCalc(){var MinHP=parseInt($(".minhp").text());var MinATK=parseInt($(".minatk").text());var MinRCV=parseInt($(".minrcv").text());var MinWeight=parseInt($(".minweight").text());var MinSell=parseInt($(".sell-price-base").text());var MinFodder=parseInt($(".fodder-base").text());var MaxLevel=parseInt($(".maxlevel").text());var MaxHP=parseInt($(".maxhp").text());var MaxATK=parseInt($(".maxatk").text());var MaxRCV=parseInt($(".maxrcv").text());var MaxWeight=parseInt($(".maxweight").text()); var MaxSell=parseInt($(".sell-price-lv-max").text());var MaxFodder=parseInt($(".fodder-lv-max").text());var growths=$('h2:contains("Stats Growth Chart")').closest("table").next("table").find("td.value-end").text();var GrowthHP=growths.indexOf("HP: Normal")>-1?1:growths.indexOf("HP: Late Bloomer")>-1?1.5:.7;var GrowthATK=growths.indexOf("ATK: Normal")>-1?1:growths.indexOf("ATK: Late Bloomer")>-1?1.5:.7;var GrowthRCV=growths.indexOf("RCV: Normal")>-1?1:growths.indexOf("RCV: Late Bloomer")>-1?1.5:.7; var CurLevel=parseInt($("select.monster-tarlevel-select[name=curlevel]").val());var CurPlusHP=parseInt($("#plushp").val()?$("#plushp").val():0);var CurPlusATK=parseInt($("#plusattack").val()?$("#plusattack").val():0);var CurPlusRCV=parseInt($("#plusrecover").val()?$("#plusrecover").val():0);var CurHP,CurATK,CurRCV,CurFodder,CurSell,CurWeight;if(MaxLevel===1){CurHP=MaxHP;CurATK=MaxATK;CurRCV=MaxRCV;CurWeight=MaxWeight;CurFodder=MaxFodder;CurSell=MaxSell}else{CurHP=Math.round(MinHP+(MaxHP-MinHP)*Math.pow((CurLevel- 1)/(MaxLevel-1),GrowthHP))+CurPlusHP*10;CurATK=Math.round(MinATK+(MaxATK-MinATK)*Math.pow((CurLevel-1)/(MaxLevel-1),GrowthATK))+CurPlusATK*5;CurRCV=Math.round(MinRCV+(MaxRCV-MinRCV)*Math.pow((CurLevel-1)/(MaxLevel-1),GrowthRCV))+CurPlusRCV*3;CurWeight=Math.round((CurHP/10+CurATK/5+CurRCV/3)*100)/100;CurFodder=Math.round(parseFloat(MinFodder)*CurLevel);CurSell=Math.round(parseFloat(MinSell)*CurLevel)}$(".sell-price-current").remove();$(".fodder-lv-current").remove();$(".same-element-current").remove(); $(".curlevel").text(CurLevel);$(".curhp").text(CurHP);$(".curatk").text(CurATK);$(".currcv").text(CurRCV);$(".curweight").text(CurWeight);$(".cursell").text(CurSell);$(".curfodder").html(CurFodder+'<br><span class="small">('+CurFodder*1.5+")</span>")}$(function(){add_compare_cols()}); function add_compare_cols(){var profile_id=$('h2:contains("Profile No.")').text().replace("Profile No.","");var profile_obj=stat_comparison[profile_id];var evo_arr=get_evo_arr();var tableObj=$("#tablecustom");tableObj.find("tbody > tr:nth-child(1) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(2) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(3) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(4) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(5) > td:gt(3)").remove(); tableObj.find("tbody > tr:nth-child(6) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(7) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(8) > td:gt(3)").remove();tableObj.find("tbody > tr:nth-child(9) > td:gt(3)").remove();$.each(evo_arr,function(i,mon_id){if(mon_id!==profile_id){var obj=stat_comparison[mon_id];var curlevel=obj[0];var curhp='<span class="data">'+parseInt(obj[1]-profile_obj[1])+"</span>";var curatk='<span class="data">'+parseInt(obj[2]-profile_obj[2])+"</span>"; var currcv='<span class="data">'+parseInt(obj[3]-profile_obj[3])+"</span>";var profile_weight=Math.round((profile_obj[1]/10+profile_obj[2]/5+profile_obj[3]/3)*100)/100;var CurWeight=Math.round((obj[1]/10+obj[2]/5+obj[3]/3)*100)/100;CurWeight='<span class="data">'+parseInt(CurWeight-profile_weight)+"</span>";tableObj.find("tbody > tr:nth-child(1)").append('<td><a href="monster.asp?n='+mon_id+'" rel="nofollow"><img src="img/thumbnail/'+mon_id+'.png" title="No.'+mon_id+'" alt="No.'+mon_id+'" style="width:40px;height:40px;"></a></td>'); tableObj.find("tbody > tr:nth-child(2)").append('<td class="curlevel-'+mon_id+'">'+curlevel+"</td>");tableObj.find("tbody > tr:nth-child(3)").append('<td class="curhp-'+mon_id+'">'+curhp+"</td>");tableObj.find("tbody > tr:nth-child(4)").append('<td class="curatk-'+mon_id+'">'+curatk+"</td>");tableObj.find("tbody > tr:nth-child(5)").append('<td class="currcv-'+mon_id+'">'+currcv+"</td>");tableObj.find("tbody > tr:nth-child(6)").append('<td class="curweight-'+mon_id+'">'+CurWeight+"</td>");tableObj.find("tbody > tr:nth-child(8)").append('<td class="cursell-'+ mon_id+'">'+obj[7]+"</td>");tableObj.find("tbody > tr:nth-child(9)").append('<td class="curfodder-'+mon_id+'">'+obj[8]+"</td>")}});var colspan=evo_arr.indexOf(profile_id)!==-1?evo_arr.length+3:evo_arr.length+4;tableObj.find("tbody > tr:nth-child(7) > td").attr("colspan",colspan);$.each($("#tablecustom span.data"),function(){if($(this).text().indexOf("-")===0)$(this).addClass("red");else if($(this).text()!=="0"){$(this).prepend("+");$(this).addClass("green")}})} function get_evo_arr(){var profile_id=$('h2:contains("Profile No.")').text().replace("Profile No.","");var full_evo_arr=$(".eframenum").map(function(){return $(this).text()});var non_ult=$("table#tablestat > tbody > tr:nth-child(2) .eframenum").map(function(){return $(this).text()});var ret_arr=[];$.each(non_ult,function(i,n){if(n>profile_id)ret_arr.push(n)});if(ret_arr.length===0)ret_arr.push(non_ult[non_ult.length-1]);$.each(full_evo_arr,function(i,n){if($('table#tablestat > tbody > tr:nth-child(2) .eframenum:contains("'+ n+'")').map(function(){return $(this).text()}).length===0)ret_arr.push(n)});return ret_arr}; $(function(){profile_id=parseInt($('h2:contains("Profile No.")').text().replace("Profile No.",""));$.getJSON("script/growth/growth.txt",function(json){growth=json.growth});init_feedAmtGroups();orig_exp_table=$("table.tableexp");orig_exp_table.addClass("hover-expand-parent");maxLvl=stat_comparison[profile_id][0];var tables_html='<tr><td colspan="4"><table id="expControls"><tbody><tr><td style="width:30%;"><select name="curlevel" id="monster-curlevel-select" onchange="validate_exp_calculator();init_exp_table_by_lvl()"><option value="1">Now Lv</option></select></td><td style="width:33%;"><select name="tarlevel" id="monster-tarlevel-select" onchange="validate_exp_calculator();init_exp_table_by_lvl()"><option value="2">Tar Lv</option></select></td><td><input type="number" placeholder="Current Exp" id="monster-exp-input" min="0" onkeyup="validate_exp_calculator();init_exp_table_by_exp()" onchange="validate_exp_calculator();init_exp_table_by_exp()"></td></tr></tbody></table></td></tr>'; tables_html+='<tr><td colspan="4"><table id="expInfo" class="hover-expand-child" style="display:none;"><thead><tr><td id="expInfoDesc" colspan="3"></td></tr></thead><tbody></tbody></table></td></tr>';orig_exp_table.find("tbody").append(tables_html);init_nowLv("select#monster-curlevel-select",1,maxLvl-1);init_targetLv("select#monster-tarlevel-select",2,maxLvl);$("#monster-exp-input").focus(function(){var val=$("#monster-exp-input").val();if(val==="")$("#monster-exp-input").val(0)})}); var exp_mons=[180,177,259,256,253,181,178,254,257,260,309,261,617,618,619,304,306,308,601,603,523,524,525,577,578];var feedAmtGroups={};var exp_group_idx=[];var orig_exp_table;var growth;var profile_id,maxLvl,maxExp;function validate_exp_calculator(){$("#monster-exp-input").val(validate_withinExpRange())} function validate_withinExpRange(){maxExp=get_exp_for_lvl(maxLvl);var raw=parseInt($("#monster-exp-input").val().replace(/\D/g,""));raw=isNaN(raw)?0:raw;raw=raw>=0?raw:0;if(raw>=0&&raw<maxExp)ret=raw;else if(raw>=maxExp)ret=maxExp-1;return ret}function init_nowLv(sel,min,max){var obj=$(sel);obj.html("<option>Now Lv</option>");for(var i=max;i>=min;i--)obj.append('<option value="'+i+'">'+i+"</option>")} function init_targetLv(sel,min,max){var obj=$(sel);obj.html("<option>Tar Lv</option>");for(var i=max;i>=min;i--)obj.append('<option value="'+i+'">'+i+"</option>")}function mons_elms(elm){switch(elm){case "Fire":return[253,520,254,617,304,523];break;case "Wood":return[259,522,260,619,308,525];break;case "Water":return[256,521,257,618,306,524];break;case "Light":return[180,1005,181,309,601,577];break;case "Dark":return[177,1006,178,261,603,578];break}} function init_feedAmtGroups(){feedAmtGroups={};exp_group_idx=[];var elm=$('table#tableprofile tr:contains("Element:") > td.data > a:first-child').text();var sameElm=mons_elms(elm);$(exp_mons).each(function(){var id=parseInt(this);var maxFeed=stat_comparison[id][8]/4*stat_comparison[id][0];if(sameElm.indexOf(id)!==-1)maxFeed=parseInt(maxFeed*1.5);if(exp_group_idx.indexOf(maxFeed)===-1){exp_group_idx.push(maxFeed);feedAmtGroups[maxFeed]=[id]}else feedAmtGroups[maxFeed].push(id)})} function determine_exp_needed(cur,tar){var curveArr=get_curve_arr();var cur_exp;if(exp_by_exp===undefined)cur_exp=curveArr[cur-1][2];else{cur_exp=exp_by_exp;exp_by_exp=undefined}var tar_exp=curveArr[tar-2][2]+curveArr[tar-2][3];return tar_exp-cur_exp} function get_curve_arr(){var realCurve=$('td.title:contains("Growth Curve") > a[href^="experiencechart.asp"]').attr("href").replace("experiencechart.asp?curve=","");return $(growth).map(function(){if(this[0]===parseInt(realCurve)/1E3)return[[this[0],this[1],this[2],this[3]]]})}function get_exp_for_lvl(lvl){var curve=get_curve_arr();if(parseInt(lvl)!==99)return curve[lvl-1][2];else return curve[97][2]+curve[97][3]} function exp_table_mons_html(arr){var html="";$.each(arr,function(i,n){html+='<a href="monster.asp?n='+n+'"><img src="img/thumbnail/'+n+'.png"></a>'});return html}var exp_by_exp; function init_exp_table_by_exp(){exp_by_exp=parseInt($("#monster-exp-input").val());if(exp_by_exp!=="")exp_by_exp=0;var curveArr=get_curve_arr();var lvl;$(curveArr).each(function(){var arr=this;if(this[2]<=exp_by_exp&&this[1]!==99)lvl=this[1]});$("#monster-curlevel-select").val(lvl>=1?lvl:1);var current_level=parseInt($("#monster-curlevel-select").val());var target_level=parseInt($("#monster-tarlevel-select").val());if(current_level>=target_level){target_level=current_level+1;$("#monster-tarlevel-select").val(current_level+ 1)}init_exp_table()}function init_exp_table_by_lvl(){var current_level=parseInt($("#monster-curlevel-select").val());var curveArr=get_curve_arr();var current_level=parseInt($("#monster-curlevel-select").val());var target_level=parseInt($("#monster-tarlevel-select").val());if(current_level>=target_level){target_level=current_level+1;$("#monster-tarlevel-select").val(current_level+1)}$("#monster-exp-input").val(curveArr[current_level-1][2]);init_exp_table()} function init_exp_table(){$("table#expInfo").show();var current_level=parseInt($("#monster-curlevel-select").val());var target_level=parseInt($("#monster-tarlevel-select").val());if(current_level>=target_level){target_level=current_level+1;$("#monster-tarlevel-select").val(current_level+1)}var exp_needed=determine_exp_needed(current_level,target_level);var curveArr=get_curve_arr();var lvl;$(curveArr).each(function(){var arr=this;if(this[2]<=exp_by_exp&&this[1]!==99)lvl=this[1]});var exp_info='From Lv <b class="green">'+ current_level+'</b> to Lv <b class="green">'+target_level+'</b> = <b class="blue">'+nwc(exp_needed)+"</b> exp";var table=$("table#expInfo");$("table#expInfo > tbody > tr").remove();$("#expInfoDesc").html(exp_info);exp_group_idx.sort(function(a,b){return a>b?-1:1});$(exp_group_idx).each(function(i,exp_per){var td_exp=exp_table_mons_html(feedAmtGroups[exp_per]);var td_expper=nwc(exp_per);var td_modxp=exp_needed/exp_per;var td_remainderexp=exp_needed%exp_per;var html='<tr><td class="exp">'+td_exp+'</td><td class="modexp">x <span class="green">'+ Math.floor(td_modxp)+"</span> + "+nwc(Math.round(td_remainderexp))+" exp</td></tr>";table.find("tbody").append(html)})}function nwc(x){return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g,",")};  function expandSpam(id,type) { if ( document.getElementById(id+"-"+type+"-content").style.display=="none" ) { document.getElementById(id+"-"+type+"-content").style.display=""; document.getElementById(id+"-"+type+"-spam").style.display="none"; document.getElementById(id+"-"+type+"-link").innerText="Hide"; } else { document.getElementById(id+"-"+type+"-content").style.display="none"; document.getElementById(id+"-"+type+"-spam").style.display=""; document.getElementById(id+"-"+type+"-link").innerText="Show"; } } $(function(){$(".monster-survey-select").change(function(){if($("#survey1").val()>"0"&&($("#survey2").val()>"0"&&($("#survey3").val()>"0"&&($("#survey4").val()>"0"&&$("#survey5").val()>"0"))))$("#monstersurvey").submit()})}); $(function(){$("#container").highcharts({chart:{polar:true,type:"area",backgroundColor:"rgba(255, 255, 255, 0.0)",color:"#f00",spacingLeft:20},title:{text:"",x:-80},pane:{size:"70%"},xAxis:{categories:['Active Skill', 'Leader Skill', 'Team Synergy', 'Appearance', 'Awoken Skills'],tickmarkPlacement:"on",lineWidth:0,labels:{style:{width:"100px",color:"#81e26f",font:"11px verdana, arial, sans-serif"}},gridLineColor:"#ffffff"},yAxis:{gridLineInterpolation:"polygon",lineWidth:0,min:0,max:10,labels:{style:{color:"#ffffff",font:"12px verdana, arial, sans-serif"},x:-10},gridLineColor:"#ffffff"}, tooltip:{backgroundColor:"rgba(55, 137, 181, 0.6)",borderWidth:"2",borderColor:"#ffffff",shared:false,formatter:function(){return this.y},style:{color:"#ffffff",font:"12px verdana, arial, sans-serif"}},legend:{align:"right",verticalAlign:"top",y:70,layout:"vertical"},plotOptions:{area:{marker:{enabled:false}}},plotOptions:{series:{fillColor:"rgba(160, 170, 49, 0.3)"}},series:[{showInLegend:false,name:"",color:"#dfc167",data:[8.8, 8.6, 8.9, 9.3, 8.9],pointPlacement:"on"}],exporting:{enabled:false},credits:{enabled:false}})});  
